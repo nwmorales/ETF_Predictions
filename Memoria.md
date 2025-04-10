@@ -29,11 +29,11 @@ Los mercados financieros, y en particular los ETFs, ofrecen oportunidades de inv
 
 ### 3.1. Fuente de Datos
 
-Los datos históricos de precios (como Apertura, Máximo, Mínimo, Cierre, Cierre Ajustado, Volumen) para los ETFs se obtuvieron de [Especifica la fuente: Ej. Yahoo Finance API, Alpha Vantage, una librería específica como `yfinance`, un archivo CSV, etc.]. Se recopilaron datos para una amplia selección de ETFs importantes del mercado estadounidense.
+Los datos históricos de precios (como Apertura, Máximo, Mínimo, Cierre, Cierre Ajustado, Volumen) para los ETFs se obtuvieron de Kaggle y posteriormente se amplió con la API de Yahoo Finance. Se recopilaron datos para una amplia selección de ETFs importantes del mercado estadounidense.
 
 ### 3.2. Descripción de los Datos
 
-El dataset inicial contiene información de series temporales para múltiples ETFs, cubriendo el período desde [Fecha Inicio] hasta [Fecha Fin]. Las características principales por ETF incluyen:
+El dataset inicial contiene información de series temporales para múltiples ETFs. Las características principales por ETF incluyen:
 
 *   `Date`: Fecha de la cotización.
 *   `Open`: Precio de apertura.
@@ -70,17 +70,24 @@ Para este proyecto se utilizará la metodología **CRISP-DM** (Cross-Industry St
 ### 4.2. Tecnologías Utilizadas
 
 *   **Lenguaje:** Python ([Versión, ej. 3.9+])
+  
 *   **Librerías Principales:**
     *   `Pandas`: Manipulación y análisis de datos.
     *   `NumPy`: Operaciones numéricas.
     *   `Scikit-learn`: Modelos de Machine Learning, preprocesamiento y evaluación.
     *   `Matplotlib` / `Seaborn`: Visualización de datos.
     *   [Otras librerías usadas: Ej. `yfinance` para datos, `TensorFlow`/`Keras`/`PyTorch` si usaste Deep Learning, `Statsmodels` si usaste modelos estadísticos como ARIMA, etc.]
+      
 *   **Entorno:** Google Colab
+  
 *   **Docker**
+  
 *   **Apache Nifi**
+  
 *   **Apache Hadoop**
+  
 *   **Apache Cassandra**
+  
 
 ### 4.3. Feature Engineering (Ingeniería de Características)
 
