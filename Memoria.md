@@ -1,6 +1,6 @@
 # Proyecto: Análisis y Predicción de ETFs de EEUU
 
-**Autor/es:** Ivan López Tomàs y Nelson Williams Morales 
+**Autor/es:** Ivan López Tomàs y Nelson William Morales 
 
 **Repositorio:** https://github.com/nwmorales/ETF_Predictions
 
@@ -65,7 +65,7 @@ Con base en la rentabilidad histórica calculada en el paso anterior, se selecci
 
 ### 4.1. Metodología de Minería de Datos 
 
-Para este proyecto se utilizará la metodología CRISP-DM (Cross-Industry Standard Process for Data Mining), ya que es una de las más utilizadas en ciencia de datos por su enfoque estructurado y flexible. Se eligió porque permite organizar todo el proceso de forma lógica, desde entender el problema hasta aplicar y evaluar modelos.
+Para este proyecto se utilizará la metodología **CRISP-DM** (Cross-Industry Standard Process for Data Mining), ya que es una de las más utilizadas en ciencia de datos por su enfoque estructurado y flexible. Se eligió porque permite organizar todo el proceso de forma lógica, desde entender el problema hasta aplicar y evaluar modelos.
 
 ### 4.2. Tecnologías Utilizadas
 
@@ -76,7 +76,11 @@ Para este proyecto se utilizará la metodología CRISP-DM (Cross-Industry Standa
     *   `Scikit-learn`: Modelos de Machine Learning, preprocesamiento y evaluación.
     *   `Matplotlib` / `Seaborn`: Visualización de datos.
     *   [Otras librerías usadas: Ej. `yfinance` para datos, `TensorFlow`/`Keras`/`PyTorch` si usaste Deep Learning, `Statsmodels` si usaste modelos estadísticos como ARIMA, etc.]
-*   **Entorno:** [Ej. Jupyter Notebooks, Scripts .py, Google Colab]
+*   **Entorno:** Google Colab
+*   **Docker**
+*   **Apache Nifi**
+*   **Apache Hadoop**
+*   **Apache Cassandra**
 
 ### 4.3. Feature Engineering (Ingeniería de Características)
 
