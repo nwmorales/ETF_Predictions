@@ -80,7 +80,8 @@ Para este proyecto se utilizará la metodología **CRISP-DM** (Cross-Industry St
 *   **Docker**
 *   **Apache Nifi**
 *   **Apache Hadoop** 
-*   **Apache Cassandra** 
+*   **Apache Cassandra**
+*   **Orange Datamining**
   
 
 ### 4.3. Feature Engineering (Ingeniería de Características)
