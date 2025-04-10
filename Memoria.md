@@ -191,24 +191,3 @@ Posibles líneas de mejora y expansión del proyecto:
     *   [Explica cómo ejecutar los scripts o notebooks principales. Ej: "Abrir y ejecutar los notebooks en orden: `01_data_acquisition.ipynb`, `02_data_cleaning.ipynb`, `03_feature_engineering.ipynb`, `04_modeling.ipynb`, `05_evaluation.ipynb`"]
     *   [O si tienes un script principal: `python main.py --opcion`]
 
----
-
-## 9. Estructura del Repositorio
-
-
-
-*(Ajusta esta estructura a la tuya real)*
-
----
-
-## 10. Licencia
-
-Este proyecto se distribuye bajo la licencia [Nombre de la Licencia, ej. MIT License]. Ver el archivo `LICENSE` para más detalles.
-
----
-
-## 11. Contacto
-
-[Tu Nombre] - [Tu Email o Perfil de GitHub/LinkedIn]
-
----
