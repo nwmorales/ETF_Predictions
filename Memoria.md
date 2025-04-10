@@ -63,7 +63,11 @@ Con base en la rentabilidad histórica calculada en el paso anterior, se selecci
 
 ## 4. Metodología
 
-### 4.1. Tecnologías Utilizadas
+### 4.1. Metodología de Minería de Datos 
+
+Para este proyecto se utilizará la metodología CRISP-DM (Cross-Industry Standard Process for Data Mining), ya que es una de las más utilizadas en ciencia de datos por su enfoque estructurado y flexible. Se eligió porque permite organizar todo el proceso de forma lógica, desde entender el problema hasta aplicar y evaluar modelos.
+
+### 4.2. Tecnologías Utilizadas
 
 *   **Lenguaje:** Python ([Versión, ej. 3.9+])
 *   **Librerías Principales:**
@@ -74,7 +78,7 @@ Con base en la rentabilidad histórica calculada en el paso anterior, se selecci
     *   [Otras librerías usadas: Ej. `yfinance` para datos, `TensorFlow`/`Keras`/`PyTorch` si usaste Deep Learning, `Statsmodels` si usaste modelos estadísticos como ARIMA, etc.]
 *   **Entorno:** [Ej. Jupyter Notebooks, Scripts .py, Google Colab]
 
-### 4.2. Feature Engineering (Ingeniería de Características)
+### 4.3. Feature Engineering (Ingeniería de Características)
 
 Para mejorar la capacidad predictiva de los modelos, se crearon características adicionales a partir de los datos históricos, tales como:
 
@@ -84,7 +88,7 @@ Para mejorar la capacidad predictiva de los modelos, se crearon características
 *   Diferencias de precios o retornos diarios/semanales.
 *   [Cualquier otra característica que hayas creado].
 
-### 4.3. Modelos de Predicción
+### 4.4. Modelos de Predicción
 
 Se experimentó con los siguientes modelos de Machine Learning para predecir [Especifica qué se predice: Ej. el precio de cierre del día siguiente, la dirección del movimiento (sube/baja), un rango de precios]:
 
@@ -96,7 +100,7 @@ Se experimentó con los siguientes modelos de Machine Learning para predecir [Es
 
 Para cada modelo, se realizó una división de los datos en conjuntos de entrenamiento y prueba (y posiblemente validación), respetando el orden temporal para evitar *data leakage*. Se llevó a cabo [Menciona si hiciste optimización de hiperparámetros, ej. GridSearchCV, RandomizedSearchCV].
 
-### 4.4. Evaluación
+### 4.5. Evaluación
 
 Los modelos se evaluaron utilizando las siguientes métricas:
 
