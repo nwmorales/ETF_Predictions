@@ -1,8 +1,7 @@
 # Proyecto: Análisis y Predicción de ETFs de EEUU
 
-**Autor/es:** Ivan López Tomàs   /   Nelson Williams Morales
-**Fecha:** [Fecha de Creación/Última Actualización]
-**Repositorio:** [Link a tu repositorio de GitHub]
+**Autor/es:** Ivan López Tomàs y Nelson Williams Morales 
+**Repositorio:** https://github.com/nwmorales/ETF_Predictions
 
 ---
 
