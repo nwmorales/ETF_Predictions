@@ -70,23 +70,17 @@ Para este proyecto se utilizará la metodología **CRISP-DM** (Cross-Industry St
 ### 4.2. Tecnologías Utilizadas
 
 *   **Lenguaje:** Python ([Versión, ej. 3.9+])
-  
 *   **Librerías Principales:**
     *   `Pandas`: Manipulación y análisis de datos.
     *   `NumPy`: Operaciones numéricas.
     *   `Scikit-learn`: Modelos de Machine Learning, preprocesamiento y evaluación.
     *   `Matplotlib` / `Seaborn`: Visualización de datos.
     *   [Otras librerías usadas: Ej. `yfinance` para datos, `TensorFlow`/`Keras`/`PyTorch` si usaste Deep Learning, `Statsmodels` si usaste modelos estadísticos como ARIMA, etc.]
-      
 *   **Entorno:** Google Colab
-  
 *   **Docker**
-  
 *   **Apache Nifi**
-  
-*   **Apache Hadoop**
-  
-*   **Apache Cassandra**
+*   **Apache Hadoop** 
+*   **Apache Cassandra** 
   
 
 ### 4.3. Feature Engineering (Ingeniería de Características)
