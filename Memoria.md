@@ -128,11 +128,6 @@ Los modelos se evaluaron utilizando las siguientes métricas:
 
 En esta sección se resumen los hallazgos principales:
 
-*   [Describe brevemente el rendimiento general de los modelos. ¿Fueron capaces de predecir con cierta precisión?]
-*   [¿Qué modelo(s) funcionó/funcionaron mejor según las métricas de evaluación?]
-*   [Incluye aquí enlaces a Notebooks con análisis detallados, gráficos clave (puedes subir imágenes al repo y enlazarlas), o tablas resumen.]
-    *   Ejemplo: `![Comparativa de RMSE](ruta/a/tu/imagen_rmse.png)`
-*   [Algún insight interesante descubierto durante el análisis o modelado.]
 
 **Ejemplo:**
 "El modelo LSTM mostró el RMSE más bajo en la predicción del precio de cierre a 1 día vista para la mayoría de los ETFs analizados, aunque el modelo Random Forest fue más robusto para predecir la dirección del movimiento (subida/bajada) con una Accuracy del X% en el conjunto de prueba."
@@ -172,7 +167,7 @@ Posibles líneas de mejora y expansión del proyecto:
     cd [Nombre de la carpeta del proyecto]
     ```
 
-2.  **Crear un entorno virtual (recomendado):**
+2.  **Crear un entorno virtual :**
     ```bash
     python -m venv env
     # En Windows
@@ -185,9 +180,8 @@ Posibles líneas de mejora y expansión del proyecto:
     ```bash
     pip install -r requirements.txt
     ```
-    *(Asegúrate de tener un archivo `requirements.txt` con todas las librerías necesarias. Puedes generarlo con `pip freeze > requirements.txt`)*
+
 
 4.  **Ejecutar el proyecto:**
-    *   [Explica cómo ejecutar los scripts o notebooks principales. Ej: "Abrir y ejecutar los notebooks en orden: `01_data_acquisition.ipynb`, `02_data_cleaning.ipynb`, `03_feature_engineering.ipynb`, `04_modeling.ipynb`, `05_evaluation.ipynb`"]
-    *   [O si tienes un script principal: `python main.py --opcion`]
+   
 
