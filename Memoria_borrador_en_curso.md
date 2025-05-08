@@ -3,6 +3,7 @@
 **Autor/es:** Ivan López Tomàs y Nelson William Morales 
 
 **Repositorio:** https://github.com/nwmorales/ETF_Predictions
+
 ---
 
 ## 1. Introducción
@@ -42,7 +43,7 @@ Los mercados financieros, y en particular los ETFs, ofrecen oportunidades de inv
 
 
 https://careers.minsait.com/Minsait/job/Inteligencia-Artificial-Perfil-Junior/978243255/
-
+https://es.trabajo.org/
 
 
 ---
