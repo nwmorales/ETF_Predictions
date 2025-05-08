@@ -3,7 +3,6 @@
 **Autor/es:** Ivan López Tomàs y Nelson William Morales 
 
 **Repositorio:** https://github.com/nwmorales/ETF_Predictions
-
 ---
 
 ## 1. Introducción
@@ -41,6 +40,8 @@ Los mercados financieros, y en particular los ETFs, ofrecen oportunidades de inv
 
 - Visualizar los datos, los resultados de los análisis y las predicciones de los modelos de manera interactiva y comprensible utilizando Power BI y complementar el análisis con técnicas de minería de datos mediante Orange Datamining.
 
+
+https://careers.minsait.com/Minsait/job/Inteligencia-Artificial-Perfil-Junior/978243255/
 
 
 
