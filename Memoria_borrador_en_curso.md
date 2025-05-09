@@ -48,15 +48,15 @@ Un Fondo Cotizado en Bolsa (ETF, por sus siglas en inglés Exchange-Traded Fund)
 
 La versatilidad de los ETFs se refleja en su amplia tipología, que incluye desde los tradicionales ETFs indexados que siguen índices como el S&P 500 o el NASDAQ 100, hasta ETFs sectoriales, temáticos, de renta fija, e incluso de gestión activa, aunque estos últimos representan una porción menor del mercado...
 
-### Modelos de Predicción Aplicados
+### 1. Modelos de Predicción Aplicados
 
-#### Regresión Lineal
+#### 2. Regresión Lineal
 
-#### Prophet
+#### 3. Prophet
 
-#### Redes Neuronales
+#### 4. Redes Neuronales
 
-#### Modelos de Clasificación
+#### 5. Modelos de Clasificación
 
 
 https://careers.minsait.com/Minsait/job/Inteligencia-Artificial-Perfil-Junior/978243255/
