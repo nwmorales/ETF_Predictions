@@ -41,6 +41,10 @@ Los mercados financieros, y en particular los ETFs, ofrecen oportunidades de inv
 
 - Visualizar los datos, los resultados de los análisis y las predicciones de los modelos de manera interactiva y comprensible utilizando Power BI y complementar el análisis con técnicas de minería de datos mediante Orange Datamining.
 
+## Conceptos Fundamentales y Tecnologías Aplicadas
+
+### Fondos Cotizados en Bolsa (ETFs)
+
 
 https://careers.minsait.com/Minsait/job/Inteligencia-Artificial-Perfil-Junior/978243255/
 https://es.trabajo.org/
