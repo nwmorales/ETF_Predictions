@@ -50,6 +50,14 @@ La versatilidad de los ETFs se refleja en su amplia tipología, que incluye desd
 
 ### Modelos de Predicción Aplicados
 
+#### Regresión Lineal
+
+#### Prophet
+
+#### Redes Neuronales
+
+#### Modelos de Clasificación
+
 
 https://careers.minsait.com/Minsait/job/Inteligencia-Artificial-Perfil-Junior/978243255/
 https://es.trabajo.org/
