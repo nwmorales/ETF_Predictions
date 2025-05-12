@@ -126,7 +126,7 @@ Docker se ha convertido en una herramienta prácticamente indispensable en el de
 #### Power BI
 
 #### Orange Datamining
-
+Orange Datamining es una potente plataforma de software de código abierto, desarrollada en Python, que facilita el análisis de datos, la minería de datos y el aprendizaje automático (Machine Learning) a través de un paradigma de programación visual interactivo. Los usuarios construyen análisis complejos mediante la conexión de componentes visuales, conocidos como "widgets", en un lienzo de flujo de trabajo (workflow). Cada widget encapsula una operación específica, abarcando el ciclo de vida completo del análisis de datos: desde la carga de datos (widget File), la exploración visual interactiva (widgets como Distributions, Correlations, Scatter Plot), el preprocesamiento de datos (incluyendo selección de características con Select Columns o transformaciones como codificación one-hot y escalado con Continuize), la aplicación de una amplia gama de algoritmos de modelado (regresión como Linear Regression, Tree, Random Forest, Gradient Boosting, así como clasificación y clustering), hasta la evaluación rigurosa de modelos (widget Test & Score con opciones como validación cruzada) y el análisis detallado de resultados (visualización de predicciones, importancia de variables con Rank, o inspección de modelos como con Tree Viewer)
 
 ## 3. Metodología y Diseño del Sistema
 
