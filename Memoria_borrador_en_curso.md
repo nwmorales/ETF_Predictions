@@ -87,7 +87,12 @@ Por estas razones, NiFi se posiciona como un orquestador y preparador de datos m
 
 
 #### Docker 
-La contenerización mediante Docker fue adoptada en este proyecto para asegurar la consistencia y reproducibilidad del entorno de desarrollo y despliegue de los distintos componentes de la arquitectura Big Data, incluyendo NiFi, Cassandra y los nodos de Hadoop. Esto simplifica la gestión de dependencias y facilita la portabilidad de la solución.
+Docker es una plataforma de código abierto que ha revolucionado la forma en que se desarrollan, distribuyen y ejecutan las aplicaciones mediante el uso de la tecnología de contenerización. La idea central es empaquetar una aplicación o servicio, junto con todas sus dependencias (librerías, binarios, archivos de configuración, etc.), en una unidad estandarizada y aislada denominada contenedor. Estos contenedores se crean a partir de imágenes (plantillas de solo lectura) y se ejecutan de manera consistente en cualquier máquina que tenga Docker instalado, independientemente del sistema operativo subyacente o de otras aplicaciones que se estén ejecutando. Para gestionar aplicaciones que constan de múltiples servicios interconectados (como una arquitectura Big Data), herramientas como Docker Compose permiten definir y ejecutar aplicaciones multi-contenedor a partir de un único archivo de configuración (docker-compose.yml).
+
+Docker se ha convertido en una herramienta prácticamente indispensable en el desarrollo y despliegue de proyectos complejos de Big Data e Inteligencia Artificial por varias razones clave:
+- Simplificación de la Configuración y el Despliegue: Montar entornos que involucran múltiples componentes de Big Data (como pueden ser clústeres de Hadoop, bases de datos NoSQL como Cassandra, herramientas de flujo como NiFi, etc.) puede ser un proceso manual complejo y propenso a errores. Docker y Docker Compose simplifican radicalmente este proceso, permitiendo levantar una arquitectura completa con todos sus servicios interconectados mediante unos pocos comandos
+- Aislamiento de Servicios: Cada contenedor se ejecuta en su propio entorno aislado, con sus propios recursos (sistema de archivos, red, procesos), evitando conflictos de dependencias o puertos entre diferentes servicios que se ejecutan en la misma máquina host.
+- Portabilidad: Las imágenes de Docker pueden construirse en una máquina y ejecutarse en cualquier otra (local, servidor, nube) que soporte Docker, facilitando la migración entre entornos.
 
 ### Herramientas de Análisis y Visualización
 
