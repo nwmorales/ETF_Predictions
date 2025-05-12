@@ -41,7 +41,7 @@ Los mercados financieros, y en particular los ETFs, ofrecen oportunidades de inv
 
 - Visualizar los datos, los resultados de los análisis y las predicciones de los modelos de manera interactiva y comprensible utilizando Power BI y complementar el análisis con técnicas de minería de datos mediante Orange Datamining.
 
-## Conceptos Fundamentales y Tecnologías Aplicadas
+## 2. Conceptos Fundamentales y Tecnologías Aplicadas
 
 ### Fondos Cotizados en Bolsa (ETFs)
 Un Fondo Cotizado en Bolsa (ETF, por sus siglas en inglés Exchange-Traded Fund) es un vehículo de inversión colectiva cuyas participaciones se negocian en mercados secundarios de valores, al igual que las acciones. Su objetivo principal suele ser replicar el comportamiento de un determinado índice bursátil, sector económico, materia prima o una cesta diversificada de activos...
@@ -80,7 +80,7 @@ La versatilidad de los ETFs se refleja en su amplia tipología, que incluye desd
 #### Orange Datamining
 
 
-## Metodología y Diseño del Sistema
+## 3. Metodología y Diseño del Sistema
 
 ### Adquisición de Datos
 
@@ -120,7 +120,7 @@ Complementariamente, se accedió a datos históricos y actualizados de ETFs medi
 ### Desafíos Técnicos y Soluciones Implementadas
 
 
-## Resultados y Pruebas
+## 4. Resultados y Pruebas
 
 ### Resultados del Análisis Exploratorio de Datos (EDA)
 
@@ -133,7 +133,10 @@ Complementariamente, se accedió a datos históricos y actualizados de ETFs medi
 
 ### Resultados de Visualización y Minería de Datos
 
+## 5. Discusión de Resultados ????
 
+
+## 6. Conclusiones
 
 https://careers.minsait.com/Minsait/job/Inteligencia-Artificial-Perfil-Junior/978243255/
 https://es.trabajo.org/
