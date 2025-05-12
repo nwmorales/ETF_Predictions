@@ -78,6 +78,13 @@ Estas capacidades hacen que Cassandra sea particularmente valiosa en el sector f
 
   
 #### Apache NiFi
+Apache NiFi es una plataforma de software de código abierto, integrada en el ecosistema de la Apache Software Foundation, diseñada específicamente para automatizar y gestionar el flujo de datos (DataFlow) entre sistemas heterogéneos de forma fiable y escalable. Su principal característica distintiva es su interfaz gráfica de usuario basada en web, que permite a los usuarios diseñar visualmente complejos pipelines de datos mediante la conexión de "Procesadores". Estos procesadores son componentes modulares que realizan tareas específicas como la ingesta de datos desde diversas fuentes (ej., monitorizando directorios con GetFile o consumiendo APIs), la transformación de datos en ruta (ej., modificando esquemas o convirtiendo tipos de datos con UpdateRecord), y el enrutamiento inteligente de la información hacia uno o múltiples destinos (ej., PutHDFS, PutCassandraQL).
+
+Por estas razones, NiFi se posiciona como un orquestador y preparador de datos muy eficaz en arquitecturas Big Data, especialmente en casos de uso que requieren:
+- La integración de datos provenientes de múltiples fuentes con diferentes formatos o protocolos.
+- La aplicación de transformaciones o limpiezas preliminares antes de que los datos lleguen a los sistemas de almacenamiento o análisis.
+- La distribución fiable de datos a diferentes sistemas (ej., un data lake en HDFS para histórico y una base de datos NoSQL como Cassandra para acceso rápido).
+
 
 #### Docker 
 La contenerización mediante Docker fue adoptada en este proyecto para asegurar la consistencia y reproducibilidad del entorno de desarrollo y despliegue de los distintos componentes de la arquitectura Big Data, incluyendo NiFi, Cassandra y los nodos de Hadoop. Esto simplifica la gestión de dependencias y facilita la portabilidad de la solución.
