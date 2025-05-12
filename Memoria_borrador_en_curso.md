@@ -59,13 +59,13 @@ La versatilidad de los ETFs se refleja en su amplia tipología, que incluye desd
 
 Prophet es un modelo de previsión desarrollado por Facebook (ahora Meta) y diseñado principalmente para series temporales con fuertes patrones de estacionalidad (como patrones diarios, semanales y anuales) y que pueden verse afectadas por eventos irregulares o festivos. A diferencia de algunos modelos tradicionales de series temporales como ARIMA, Prophet adopta un enfoque aditivo donde descompone la serie temporal en varios componentes:
 
-Tendencia (g(t)): Modela los cambios no periódicos en el valor de la serie temporal. Prophet implementa por defecto una tendencia lineal por partes, pero también permite una tendencia logística para modelar efectos de saturación.
+· Tendencia (g(t)): Modela los cambios no periódicos en el valor de la serie temporal. Prophet implementa por defecto una tendencia lineal por partes, pero también permite una tendencia logística para modelar efectos de saturación.
 
-Estacionalidad (s(t)): Representa los patrones periódicos, como la estacionalidad diaria, semanal y anual. Prophet utiliza series de Fourier para modelar estos efectos, lo que le permite adaptarse a múltiples periodos de estacionalidad simultáneamente.
+· Estacionalidad (s(t)): Representa los patrones periódicos, como la estacionalidad diaria, semanal y anual. Prophet utiliza series de Fourier para modelar estos efectos, lo que le permite adaptarse a múltiples periodos de estacionalidad simultáneamente.
 
-Festivos (h(t)): Permite incorporar el impacto de eventos específicos y predecibles (como días festivos, lanzamientos de productos, etc.) que pueden afectar la serie temporal. El usuario debe proporcionar una lista de estos eventos y sus fechas.
+· Festivos (h(t)): Permite incorporar el impacto de eventos específicos y predecibles (como días festivos, lanzamientos de productos, etc.) que pueden afectar la serie temporal. El usuario debe proporcionar una lista de estos eventos y sus fechas.
 
-Término de error (Et): Representa el ruido aleatorio que no se explica por los otros componentes del modelo.
+· Término de error (Et): Representa el ruido aleatorio que no se explica por los otros componentes del modelo.
 
 ##### ¿Para qué sirve Prophet en nuestro caso, enfocado la predicción de valores de ETFs?
 
