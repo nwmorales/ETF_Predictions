@@ -53,6 +53,52 @@ La versatilidad de los ETFs se refleja en su amplia tipología, que incluye desd
 
 #### Regresión Lineal
 
+
+
+
+### Apartado Y: Modelo de Predicción Aplicado – Regresión Lineal
+
+#### Y.1 Justificación y Selección del Modelo
+
+Dentro del conjunto de técnicas de modelado predictivo evaluadas en este proyecto, se implementó el modelo de **Regresión Lineal (RL)**. La elección de este modelo se fundamenta en:
+
+*   **Objetivo del Proyecto:** La necesidad de modelar una relación potencialmente lineal entre nuestra variable objetivo continua, **`[Nombre de tu variable dependiente Y]`**, y un conjunto de predictores, **`[Menciona brevemente tus variables independientes X clave]`**.
+*   **Análisis Exploratorio Previo:** Los análisis exploratorios iniciales (ver `Apartado Z: Análisis Exploratorio de Datos`) sugirieron la existencia de tendencias lineales entre `[Variable Y]` y algunas de las variables predictoras como `[Ejemplo: Superficie, Antigüedad]`.
+*   **Interpretabilidad:** La alta interpretabilidad de los coeficientes de la RL resulta valiosa para comprender el impacto individual estimado de cada predictor sobre `[Variable Y]`, un aspecto relevante para los objetivos de este estudio.
+*   **Benchmark:** Su simplicidad y eficiencia computacional lo convierten en un excelente modelo de referencia (`baseline`) para comparar el rendimiento de algoritmos más complejos que se exploran en apartados posteriores.
+*   **Naturaleza del Problema:** El problema de predecir `[Variable Y]` se alinea bien con el marco de la regresión supervisada para variables continuas.
+
+#### Y.2 Fundamento Teórico y Formulación Específica
+
+La Regresión Lineal postula que la relación entre la variable dependiente (`Y`) y una o más variables independientes (`X₁`, `X₂`, ..., `Xₚ`) puede aproximarse mediante una función lineal. En este proyecto, se aplicó la **[Elige: Regresión Lineal Simple / Regresión Lineal Múltiple]**.
+
+*   **[Si es Simple]:** Se buscó modelar `[Variable Y]` utilizando únicamente `[Variable X única]` mediante la ecuación:
+    ```
+    [Variable Y] = β₀ + β₁[Variable X única] + ε
+    ```
+*   **[Si es Múltiple]:** Se modeló `[Variable Y]` utilizando el conjunto de predictores `[Lista tus variables X₁, X₂, ..., Xₚ]` mediante la ecuación:
+    ```
+    [Variable Y] = β₀ + β₁[Variable X₁] + β₂[Variable X₂] + ... + βₚ[Variable Xₚ] + ε
+    ```
+
+Donde:
+*   `β₀` representa el valor esperado de `[Variable Y]` cuando todos los predictores son cero (o el valor base si las variables están centradas/escaladas).
+*   `βᵢ` (para `i ≥ 1`) es el coeficiente asociado a la variable predictora `[Variable Xᵢ]`. Estima el cambio esperado en `[Variable Y]` por cada unidad de cambio en `[Variable Xᵢ]`, manteniendo constantes las demás variables predictoras incluidas en el modelo (*ceteris paribus*).
+*   `ε` es el término de error o residuo, que captura la variabilidad de `[Variable Y]` no explicada por la relación lineal con los predictores incluidos.
+
+#### Y.3 Estimación del Modelo: Método de Mínimos Cuadrados Ordinarios (MCO)
+
+Para determinar los valores óptimos de los coeficientes (`β₀, β₁, ..., βₚ`) que mejor ajustan el modelo a nuestros datos de entrenamiento, se empleó el método de **Mínimos Cuadrados Ordinarios (MCO)** u *Ordinary Least Squares (OLS)*. Este método minimiza la Suma de los Cuadrados de los Residuos (SCR), es decir, la suma de las diferencias al cuadrado entre los valores observados de `[Variable Y]` (`Yᵢ`) y los valores predichos por el modelo (`Ŷᵢ`):
+
+```math
+Minimizar \ SCR = \sum_{i=1}^{n}(Yᵢ - Ŷᵢ)² = \sum_{i=1}^{n}(Yᵢ - (β₀ + β₁[Variable X₁ᵢ] + ... + βₚ[Variable Xₚᵢ]))²
+
+
+El modelo final de Regresión Lineal obtenido (o el más representativo) fue:
+Ŷ = [Valor de β₀] + [Valor de β₁]*[Variable X₁] + ... + [Valor de βₚ]*[Variable Xₚ]
+
+
+
 #### Prophet
 
 #### Redes Neuronales
