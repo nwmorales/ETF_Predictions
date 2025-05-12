@@ -48,6 +48,7 @@ Un Fondo Cotizado en Bolsa (ETF, por sus siglas en inglés Exchange-Traded Fund)
 
 La versatilidad de los ETFs se refleja en su amplia tipología, que incluye desde los tradicionales ETFs indexados que siguen índices como el S&P 500 o el NASDAQ 100, hasta ETFs sectoriales, temáticos, de renta fija, e incluso de gestión activa, aunque estos últimos representan una porción menor del mercado...
 
+
 ### Modelos de Predicción Aplicados
 
 #### Regresión Lineal
@@ -57,6 +58,7 @@ La versatilidad de los ETFs se refleja en su amplia tipología, que incluye desd
 #### Redes Neuronales
 
 #### Modelos de Clasificación
+
 
 ### Arquitecturas y Tecnologías Big Data 
 
@@ -68,6 +70,7 @@ La versatilidad de los ETFs se refleja en su amplia tipología, que incluye desd
 
 #### Docker 
 
+
 ### Herramientas de Análisis y Visualización
 
 #### Pandas 
@@ -75,6 +78,57 @@ La versatilidad de los ETFs se refleja en su amplia tipología, que incluye desd
 #### Power BI
 
 #### Orange Datamining
+
+
+## Metodología y Diseño del Sistema
+
+### Adquisición de Datos
+
+#### Fuente de Datos: Kaggle
+Una de las fuentes de datos para este proyecto fue un conjunto de datos obtenido de la plataforma Kaggle, denominado '[Nombre del Dataset en Kaggle, si aplica]'. Este dataset contenía información histórica de precios [especificar variables, ej: OHLCV] para una selección de [N] ETFs estadounidenses, cubriendo el periodo desde [Fecha Inicio] hasta [Fecha Fin]. Los datos se obtuvieron mediante descarga directa del archivo CSV proporcionado en la plataforma.
+
+#### Fuente de Datos: API de Yahoo Finance
+Complementariamente, se accedió a datos históricos y actualizados de ETFs mediante la API de Yahoo Finance. Para ello, se utilizó la librería yfinance de Python para realizar consultas programadas. Se seleccionaron [N o criterios] ETFs, incluyendo [mencionar algunos ejemplos clave como SPY, QQQ, etc.], para los cuales se extrajeron datos de precios OHLCV y volumen para el periodo comprendido entre [Fecha Inicio] y [Fecha Fin]. Se implementaron [mecanismos de espera/manejo de errores] para gestionar las limitaciones de frecuencia de la API.
+
+
+### Preprocesamiento y Análisis Exploratorio de Datos (EDA)
+
+#### Entorno y Herramientas de Preprocesamiento
+
+#### Proceso de Limpieza de Datos
+
+#### Análisis Exploratorio de Datos (EDA)
+
+
+### Diseño e Implementación de la Arquitectura Big Data
+
+#### Contenerización con Docker
+
+#### Flujo de Datos con Apache NiFi
+
+#### Almacenamiento con Apache Cassandra
+
+#### Almacenamiento y Procesamiento con Apache Hadoop
+
+
+### Desarrollo y Entrenamiento de Modelos de Predicción
+
+
+### Uso de Herramientas de Visualización y Minería
+
+
+### Desafíos Técnicos y Soluciones Implementadas
+
+
+
+
+
+
+
+
+
+
+
 
 
 
