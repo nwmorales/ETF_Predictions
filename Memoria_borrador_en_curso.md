@@ -55,6 +55,28 @@ La versatilidad de los ETFs se refleja en su amplia tipología, que incluye desd
 
 #### Prophet
 
+##### ¿Qué es el modelo de predicción Prophet?
+
+Prophet es un modelo de previsión desarrollado por Facebook (ahora Meta) y diseñado principalmente para series temporales con fuertes patrones de estacionalidad (como patrones diarios, semanales y anuales) y que pueden verse afectadas por eventos irregulares o festivos. A diferencia de algunos modelos tradicionales de series temporales como ARIMA, Prophet adopta un enfoque aditivo donde descompone la serie temporal en varios componentes:
+
+Tendencia (g(t)): Modela los cambios no periódicos en el valor de la serie temporal. Prophet implementa por defecto una tendencia lineal por partes, pero también permite una tendencia logística para modelar efectos de saturación.
+Estacionalidad (s(t)): Representa los patrones periódicos, como la estacionalidad diaria, semanal y anual. Prophet utiliza series de Fourier para modelar estos efectos, lo que le permite adaptarse a múltiples periodos de estacionalidad simultáneamente.
+Festivos (h(t)): Permite incorporar el impacto de eventos específicos y predecibles (como días festivos, lanzamientos de productos, etc.) que pueden afectar la serie temporal. El usuario debe proporcionar una lista de estos eventos y sus fechas.
+Término de error (Et): Representa el ruido aleatorio que no se explica por los otros componentes del modelo.
+
+##### ¿Para qué sirve Prophet en nuestro caso, enfocado la predicción de valores de ETFs?
+
+En el contexto específico de la predicción de valores futuros de acciones de ETFs, Prophet puede ser útil por varias razones:
+
+1. Primeramente, este captura la estacionalidad: A que me refiero, aunque los mercados financieros no siempre presentan una estacionalidad tan marcada como, por ejemplo, las ventas minoristas, pueden existir patrones semanales (efectos de fin de semana) o incluso anuales sutiles relacionados con ciclos económicos o comportamiento de inversores. Prophet puede intentar identificar y modelar estos patrones.
+2. Por otro lado, ofrece la opción de manejar las tendencias: Los precios de los ETFs obviamente tienen tendencias a largo plazo influenciadas por el rendimiento de los activos subyacentes, las condiciones económicas generales y el sentimiento del mercado. Prophet puede modelar estas tendencias, aunque su capacidad para predecir cambios bruscos en la tendencia (como los causados por eventos inesperados) es limitada.
+3. Además, también incorpora en el modelo la variable de los eventos conocidos: Si bien es difícil predecir eventos futuros que impacten significativamente el mercado, Prophet permite incorporar el efecto de eventos pasados conocidos (como anuncios de políticas económicas, resultados empresariales importantes dentro del ETF, etc.) si se dispone de datos sobre su impacto. Esto puede ayudar a mejorar el ajuste del modelo a la historia.
+4. Robustez y facilidad del uso de este modelo: Prophet es relativamente robusto ante datos faltantes y cambios en la varianza de la serie temporal. Además, su API en Python y R es bastante intuitiva, lo que facilita su implementación y ajuste, incluso para usuarios con menos experiencia en modelado de series temporales.
+5. Otro gran punto a favor de este modelo frente a otros, es, la generación de intervalos de incertidumbre: Prophet proporciona intervalos de confianza para sus predicciones, lo que te da una idea del rango de posibles valores futuros y te ayuda a evaluar la incertidumbre asociada a la predicción.
+6. Velocidad y escalabilidad es otro de los factores positivos que te presenta este modelo: Prophet está diseñado para manejar grandes conjuntos de datos y realizar predicciones de manera eficiente, lo cual puede ser útil si estás trabajando con muchos ETFs o con series temporales largas.
+7. Y finalmente otra de las grandes virtudes que proporciona el prohet para la predicción de valores es, el manejo que tr ofrece frente a los datos faltantes: Prophet puede manejar razonablemente bien los datos faltantes en la serie temporal sin necesidad de imputación previa.
+Sin embargo, es crucial tener en cuenta las limitaciones de Prophet al predecir valores de ETFs:
+
 #### Redes Neuronales
 
 #### Modelos de Clasificación
