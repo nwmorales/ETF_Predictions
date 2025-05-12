@@ -85,10 +85,10 @@ La versatilidad de los ETFs se refleja en su amplia tipología, que incluye desd
 ### Adquisición de Datos
 
 #### Fuente de Datos: Kaggle
-Una de las fuentes de datos para este proyecto fue un conjunto de datos obtenido de la plataforma Kaggle, denominado '[Nombre del Dataset en Kaggle, si aplica]'. Este dataset contenía información histórica de precios [especificar variables, ej: OHLCV] para una selección de [N] ETFs estadounidenses, cubriendo el periodo desde [Fecha Inicio] hasta [Fecha Fin]. Los datos se obtuvieron mediante descarga directa del archivo CSV proporcionado en la plataforma.
+Una de las fuentes de datos para este proyecto fue un conjunto de datos obtenido de la plataforma Kaggle, denominado 'Nombre del dataset'. Este dataset contenía información histórica de precios [especificar variables] para una selección de [X] ETFs estadounidenses, cubriendo el periodo desde [Fecha Inicio] hasta [Fecha Final]. Los datos se obtuvieron mediante descarga directa del archivo CSV proporcionado en la plataforma.
 
 #### Fuente de Datos: API de Yahoo Finance
-Complementariamente, se accedió a datos históricos y actualizados de ETFs mediante la API de Yahoo Finance. Para ello, se utilizó la librería yfinance de Python para realizar consultas programadas. Se seleccionaron [N o criterios] ETFs, incluyendo [mencionar algunos ejemplos clave como SPY, QQQ, etc.], para los cuales se extrajeron datos de precios OHLCV y volumen para el periodo comprendido entre [Fecha Inicio] y [Fecha Fin]. Se implementaron [mecanismos de espera/manejo de errores] para gestionar las limitaciones de frecuencia de la API.
+Complementariamente, se accedió a datos históricos y actualizados de ETFs mediante la API de Yahoo Finance. Para ello, se utilizó la librería yfinance de Python para realizar consultas programadas. Se seleccionaron [N o criterios] ETFs, incluyendo [mencionar algunos ejemplos clave como SPY, QQQ, etc.], para los cuales se extrajeron datos de precios OHLCV y volumen para el periodo comprendido entre [Fecha Inicio] y [Fecha Final]. Se implementaron [Manejo de errores] para gestionar las limitaciones de frecuencia de la API.
 
 
 ### Preprocesamiento y Análisis Exploratorio de Datos (EDA)
@@ -122,16 +122,16 @@ Complementariamente, se accedió a datos históricos y actualizados de ETFs medi
 
 ## 4. Resultados y Pruebas
 
-### Resultados del Análisis Exploratorio de Datos (EDA)
+### Análisis Exploratorio de Datos (EDA)
 
 
-### Resultados de la Implementación y Pruebas de la Arquitectura Big Data
+### Implementación y Pruebas de la Arquitectura Big Data
 
 
-### Resultados de los Modelos de Predicción
+### Modelos de Predicción
 
 
-### Resultados de Visualización y Minería de Datos
+### Visualización y Minería de Datos
 
 ## 5. Discusión de Resultados ????
 
