@@ -120,15 +120,18 @@ Complementariamente, se accedió a datos históricos y actualizados de ETFs medi
 ### Desafíos Técnicos y Soluciones Implementadas
 
 
+## Resultados y Pruebas
+
+### Resultados del Análisis Exploratorio de Datos (EDA)
 
 
+### Resultados de la Implementación y Pruebas de la Arquitectura Big Data
 
 
+### Resultados de los Modelos de Predicción
 
 
-
-
-
+### Resultados de Visualización y Minería de Datos
 
 
 
