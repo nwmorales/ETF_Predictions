@@ -63,13 +63,18 @@ La versatilidad de los ETFs se refleja en su amplia tipología, que incluye desd
 ### Arquitecturas y Tecnologías Big Data 
 
 #### Apache Hadoop
+Apache Hadoop es un ecosistema de software de código abierto fundamental para el manejo de Big Data, cuyo componente de almacenamiento, el **Hadoop Distributed File System (HDFS)**, es ampliamente utilizado por su capacidad para guardar grandes conjuntos de datos de manera fiable y escalable a través de clústeres de hardware estándar. HDFS divide los datos en bloques que se replican en múltiples nodos, garantizando la tolerancia a fallos y la disponibilidad de la información, incluso ante fallos de hardware individuales.
+
+Aunque el ecosistema Hadoop también incluye frameworks de procesamiento distribuido como el histórico MapReduce o el más moderno Apache Spark, HDFS se emplea a menudo como un repositorio centralizado y robusto para almacenar datos masivos, que luego pueden ser accedidos por otras herramientas o motores de análisis.
+
+En el sector financiero, la capacidad de HDFS para almacenar de forma económica y escalable petabytes de datos históricos (transacciones, precios de mercado, logs) es crucial para cumplir con normativas de retención de datos, realizar análisis de riesgo retrospectivos, o servir como fuente para la detección de fraude y el análisis de clientes a gran escala. Si bien el procesamiento directo sobre HDFS no fue el foco principal de nuestro proyecto, su rol como solución de almacenamiento distribuido dentro del ecosistema Big Data es relevante para manejar los volúmenes de datos asociados al análisis de instrumentos financieros como los ETFs.
 
 #### Apache Cassandra
 
 #### Apache NiFi
 
 #### Docker 
-
+La contenerización mediante Docker fue adoptada en este proyecto para asegurar la consistencia y reproducibilidad del entorno de desarrollo y despliegue de los distintos componentes de la arquitectura Big Data, incluyendo NiFi, Cassandra y los nodos de Hadoop. Esto simplifica la gestión de dependencias y facilita la portabilidad de la solución.
 
 ### Herramientas de Análisis y Visualización
 
