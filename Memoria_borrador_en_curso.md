@@ -83,32 +83,6 @@ Base estadística sólida: La regresión lineal tiene una base estadística bien
 * Flexibilidad en la inclusión de variables: Permite incorporar una amplia variedad de variables predictoras que se consideren relevantes para el precio del ETF.
 Puede capturar relaciones lineales: Si la relación entre las variables predictoras y el precio del ETF es aproximadamente lineal, la regresión lineal puede proporcionar buenas predicciones.
 
-#### Prophet
-
-##### ¿Qué es el modelo de predicción Prophet?
-
-Prophet es un modelo de previsión desarrollado por Facebook (ahora Meta) y diseñado principalmente para series temporales con fuertes patrones de estacionalidad (como patrones diarios, semanales y anuales) y que pueden verse afectadas por eventos irregulares o festivos. A diferencia de algunos modelos tradicionales de series temporales como ARIMA, Prophet adopta un enfoque aditivo donde descompone la serie temporal en varios componentes:
-
-* Tendencia (g(t)): Modela los cambios no periódicos en el valor de la serie temporal. Prophet implementa por defecto una tendencia lineal por partes, pero también permite una tendencia logística para modelar efectos de saturación.
-
-* Estacionalidad (s(t)): Representa los patrones periódicos, como la estacionalidad diaria, semanal y anual. Prophet utiliza series de Fourier para modelar estos efectos, lo que le permite adaptarse a múltiples periodos de estacionalidad simultáneamente.
-
-* Festivos (h(t)): Permite incorporar el impacto de eventos específicos y predecibles (como días festivos, lanzamientos de productos, etc.) que pueden afectar la serie temporal. El usuario debe proporcionar una lista de estos eventos y sus fechas.
-
-* Término de error (Et): Representa el ruido aleatorio que no se explica por los otros componentes del modelo.
-
-##### ¿Para qué sirve Prophet en nuestro caso, enfocado la predicción de valores de ETFs?
-
-En el contexto específico de la predicción de valores futuros de acciones de ETFs, Prophet puede ser útil por varias razones:
-
-1. Primeramente, este captura la estacionalidad: A que me refiero, aunque los mercados financieros no siempre presentan una estacionalidad tan marcada como, por ejemplo, las ventas minoristas, pueden existir patrones semanales (efectos de fin de semana) o incluso anuales sutiles relacionados con ciclos económicos o comportamiento de inversores. Prophet puede intentar identificar y modelar estos patrones.
-2. Por otro lado, ofrece la opción de manejar las tendencias: Los precios de los ETFs obviamente tienen tendencias a largo plazo influenciadas por el rendimiento de los activos subyacentes, las condiciones económicas generales y el sentimiento del mercado. Prophet puede modelar estas tendencias, aunque su capacidad para predecir cambios bruscos en la tendencia (como los causados por eventos inesperados) es limitada.
-3. Además, también incorpora en el modelo la variable de los eventos conocidos: Si bien es difícil predecir eventos futuros que impacten significativamente el mercado, Prophet permite incorporar el efecto de eventos pasados conocidos (como anuncios de políticas económicas, resultados empresariales importantes dentro del ETF, etc.) si se dispone de datos sobre su impacto. Esto puede ayudar a mejorar el ajuste del modelo a la historia.
-4. Robustez y facilidad del uso de este modelo: Prophet es relativamente robusto ante datos faltantes y cambios en la varianza de la serie temporal. Además, su API en Python y R es bastante intuitiva, lo que facilita su implementación y ajuste, incluso para usuarios con menos experiencia en modelado de series temporales.
-5. Otro gran punto a favor de este modelo frente a otros, es, la generación de intervalos de incertidumbre: Prophet proporciona intervalos de confianza para sus predicciones, lo que te da una idea del rango de posibles valores futuros y te ayuda a evaluar la incertidumbre asociada a la predicción.
-6. Velocidad y escalabilidad es otro de los factores positivos que te presenta este modelo: Prophet está diseñado para manejar grandes conjuntos de datos y realizar predicciones de manera eficiente, lo cual puede ser útil si estás trabajando con muchos ETFs o con series temporales largas.
-7. Y finalmente otra de las grandes virtudes que proporciona el prohet para la predicción de valores es, el manejo que tr ofrece frente a los datos faltantes: Prophet puede manejar razonablemente bien los datos faltantes en la serie temporal sin necesidad de imputación previa.
-Sin embargo, es crucial tener en cuenta las limitaciones de Prophet al predecir valores de ETFs:
 
 #### Redes Neuronales
 
@@ -119,53 +93,37 @@ Las redes neuronales están conformadas por unidades elementales denominadas neu
 
 Durante la fase de entrenamiento, típicamente mediante algoritmos de optimización basados en retropropagación del error y descenso del gradiente, los pesos son modificados iterativamente con el objetivo de minimizar una función de coste definida sobre un conjunto de datos de entrenamiento. Este mecanismo de ajuste permite a la red neuronal aprender representaciones internas de los datos y generalizar patrones subyacentes, habilitando así su aplicación en tareas de predicción, clasificación o generación de contenido, entre otras.
 
-#### En nuestro caso en concreto usamos una Red Neuronal Recurrente o RNN
-##### ¿Qué es un modelo de predicción basado en una Red Neuronal Recurrente (RNN)?
+##### En nuestro caso en concreto usamos una Red Neuronal Recurrente o RNN
+##### *¿Qué es un modelo de predicción basado en una Red Neuronal Recurrente (RNN)?*
 
 Una Red Neuronal Recurrente (RNN) es un tipo de red neuronal diseñada específicamente para procesar secuencias de datos, donde el orden y la dependencia temporal entre los elementos son importantes. A diferencia de las redes neuronales feedforward tradicionales, las RNN tienen conexiones que forman ciclos, lo que les permite mantener un estado interno (memoria) que captura información sobre las entradas pasadas en la secuencia.
 
-En el contexto de la predicción de series temporales como los precios de ETFs, una RNN puede aprender patrones y dependencias a lo largo del tiempo. Por ejemplo, podría aprender que una secuencia de aumentos en el volumen de negociación a menudo precede a un aumento en el precio.
-
+En el contexto de la predicción de series temporales como los precios de ETFs, una RNN puede aprender patrones y dependencias a lo largo del tiempo.
 La arquitectura básica de una RNN implica que la salida de una capa en un paso de tiempo se alimenta de nuevo a la misma capa en el siguiente paso de tiempo. Esto permite que la red "recuerde" información de pasos anteriores en la secuencia.
 
-LSTM (Long Short-Term Memory): Una RNN con Memoria a Largo Plazo
+_LSTM (Long Short-Term Memory): Una RNN con Memoria a Largo Plazo_
 
 Aunque las RNN teóricamente pueden aprender dependencias a largo plazo, en la práctica, las RNN simples sufren de un problema conocido como el "desvanecimiento del gradiente" (y el problema opuesto, la "explosión del gradiente"). Esto dificulta que la red aprenda y retenga información de pasos de tiempo muy lejanos en la secuencia.
 
-Las redes LSTM son una arquitectura especial de RNN diseñada para superar estos problemas y capturar dependencias a largo plazo de manera más efectiva. Introducen un mecanismo llamado "celda de memoria" y "puertas" (gates) que controlan el flujo de información dentro de la red:
-
-Celda de Memoria: Actúa como una "memoria" a largo plazo, capaz de almacenar información durante períodos prolongados.
-Puerta de Olvido (Forget Gate): Decide qué información de la celda de memoria anterior debe olvidarse.
-Puerta de Entrada (Input Gate): Decide qué nueva información de la entrada actual debe almacenarse en la celda de memoria.
-Puerta de Salida (Output Gate): Decide qué información de la celda de memoria debe enviarse a la salida actual de la red.
+Las redes LSTM son una arquitectura especial de RNN diseñada para superar estos problemas y capturar dependencias a largo plazo de manera más efectiva. Introducen un mecanismo llamado "celda de memoria" y "puertas" (gates) que controlan el flujo de información dentro de la red.
 Estas puertas utilizan funciones sigmoideas para producir valores entre 0 y 1, actuando como interruptores que modulan el flujo de información. La combinación de estas puertas permite a las LSTM aprender cuándo retener información importante durante largos períodos y cuándo descartar información irrelevante.
 
-¿Para qué sirve un modelo basado en una Red Neuronal Recurrente (LSTM) en la predicción de valores de ETFs?
+*¿Para qué sirve un modelo basado en una Red Neuronal Recurrente (LSTM) en la predicción de valores de ETFs?*
 
 En la predicción de valores futuros de ETFs, un modelo LSTM puede ser muy útil por su capacidad para:
 
-Capturar dependencias temporales complejas: Los precios de los ETFs están influenciados por una compleja interacción de factores a lo largo del tiempo. Las LSTM pueden aprender patrones secuenciales que podrían ser difíciles de capturar con modelos lineales como la regresión lineal. Por ejemplo, podrían identificar patrones de volatilidad, tendencias a corto y mediano plazo, y posibles efectos de "momentum".
-Modelar la volatilidad: Aunque no modelan directamente la volatilidad como algunos modelos específicos (como los modelos GARCH), las LSTM pueden aprender patrones en la volatilidad histórica y, potencialmente, predecir cambios en la volatilidad futura.
-Manejar secuencias de entrada largas: La capacidad de las LSTM para retener información a largo plazo les permite procesar secuencias de precios históricos más extensas y capturar dependencias que se extienden durante períodos de tiempo más largos.
-Incorporar múltiples variables de entrada: Al igual que la regresión lineal, las LSTM pueden tomar múltiples series temporales como entrada (por ejemplo, precios históricos del ETF, volúmenes, precios de otros activos relacionados, indicadores técnicos) para realizar la predicción. La red puede aprender las complejas interrelaciones temporales entre estas variables y el precio futuro del ETF.
-Puntos fuertes de un modelo basado en LSTM en el contexto de la predicción de ETFs:
+- Capturar dependencias temporales complejas: Los precios de los ETFs están influenciados por una compleja interacción de factores a lo largo del tiempo. Las LSTM pueden aprender patrones secuenciales que podrían ser difíciles de capturar con modelos lineales como la regresión lineal. Por ejemplo, podrían identificar patrones de volatilidad, tendencias a corto y mediano plazo, y posibles efectos de "momentum".
+- Modelar la volatilidad: Aunque no modelan directamente la volatilidad como algunos modelos específicos (como los modelos GARCH), las LSTM pueden aprender patrones en la volatilidad histórica y, potencialmente, predecir cambios en la volatilidad futura.
+- Manejar secuencias de entrada largas: La capacidad de las LSTM para retener información a largo plazo les permite procesar secuencias de precios históricos más extensas y capturar dependencias que se extienden durante períodos de tiempo más largos.
+- Incorporar múltiples variables de entrada: Al igual que la regresión lineal, las LSTM pueden tomar múltiples series temporales como entrada (por ejemplo, precios históricos del ETF, volúmenes, precios de otros activos relacionados, indicadores técnicos) para realizar la predicción. La red puede aprender las complejas interrelaciones temporales entre estas variables y el precio futuro del ETF.
+  
+_Puntos fuertes de un modelo basado en LSTM en el contexto de la predicción de ETFs:_
 
-Capacidad para aprender dependencias a largo plazo: Esta es la principal ventaja de las LSTM sobre las RNN simples y los modelos tradicionales de series temporales. Pueden capturar patrones que se desarrollan durante períodos de tiempo extensos.
-Manejo de secuencias complejas: Las LSTM son capaces de modelar relaciones no lineales y dependencias temporales intrincadas que pueden existir en los mercados financieros.
-Adaptabilidad a diferentes patrones: La arquitectura flexible de las LSTM les permite adaptarse a una variedad de patrones y dinámicas en los datos del precio del ETF.
-Potencial para mejorar la precisión en mercados volátiles: En mercados con alta volatilidad y patrones complejos, las LSTM podrían superar a modelos más simples que asumen linealidad o dependencias temporales más cortas.
-Sin embargo, también existen desafíos y limitaciones al usar LSTM para predecir valores de ETFs:
-
-Mayor complejidad y necesidad de datos: Los modelos LSTM son más complejos que la regresión lineal y generalmente requieren una mayor cantidad de datos para entrenarse de manera efectiva y evitar el sobreajuste (overfitting).
-Mayor costo computacional: El entrenamiento de redes LSTM puede ser significativamente más costoso en términos de tiempo y recursos computacionales en comparación con modelos lineales.
-Dificultad de interpretación: Las decisiones tomadas por una red neuronal LSTM son inherentemente más difíciles de interpretar que los coeficientes de un modelo de regresión lineal. Entender por qué la red realiza una predicción particular puede ser un desafío.
-Ajuste de hiperparámetros: El rendimiento de una LSTM depende en gran medida de la elección de sus hiperparámetros (por ejemplo, número de capas, número de unidades en cada capa, tasa de aprendizaje, función de activación). Encontrar la configuración óptima requiere experimentación y validación cuidadosas.
-Sensibilidad a la calidad de los datos: Al igual que otros modelos de aprendizaje automático, las LSTM son sensibles a la calidad y la representación de los datos de entrada. Datos ruidosos o mal preprocesados pueden afectar negativamente el rendimiento del modelo.
-Riesgo de sobreajuste: Dada su complejidad, las LSTM son propensas al sobreajuste, especialmente si el conjunto de datos de entrenamiento no es lo suficientemente grande o diverso. Se requieren técnicas de regularización para mitigar este riesgo.
-No predicen eventos inesperados: Al igual que otros modelos basados en datos históricos, las LSTM no pueden predecir eventos futuros completamente inesperados ("cisnes negros") que pueden tener un impacto significativo en los mercados financieros.
-
-
-
+* Capacidad para aprender dependencias a largo plazo: Esta es la principal ventaja de las LSTM sobre las RNN simples y los modelos tradicionales de series temporales. Pueden capturar patrones que se desarrollan durante períodos de tiempo extensos.
+* Manejo de secuencias complejas: Las LSTM son capaces de modelar relaciones no lineales y dependencias temporales intrincadas que pueden existir en los mercados financieros.
+* Adaptabilidad a diferentes patrones: La arquitectura flexible de las LSTM les permite adaptarse a una variedad de patrones y dinámicas en los datos del precio del ETF.
+* Potencial para mejorar la precisión en mercados volátiles: En mercados con alta volatilidad y patrones complejos, las LSTM podrían superar a modelos más simples que asumen linealidad o dependencias temporales más cortas.
+  
 
 ### Diferencias y similitudes clave entre un modelo de regresión lineal y una red neuronal artificial (RNA)
 
@@ -200,6 +158,34 @@ Las diferencias principales por otro lado són:
 | **Riesgo de sobreajuste**                 | Bajo en general                                                                  | Alto si no se regula adecuadamente                                                 |
 | **Ámbitos de aplicación**                 | Problemas con relaciones lineales claras (predicción simple, análisis explicativo) | Tareas complejas como visión por computador, PLN, clasificación no lineal         |
 
+
+
+#### Prophet
+
+##### ¿Qué es el modelo de predicción Prophet?
+
+Prophet es un modelo de previsión desarrollado por Facebook (ahora Meta) y diseñado principalmente para series temporales con fuertes patrones de estacionalidad (como patrones diarios, semanales y anuales) y que pueden verse afectadas por eventos irregulares o festivos. A diferencia de algunos modelos tradicionales de series temporales como ARIMA, Prophet adopta un enfoque aditivo donde descompone la serie temporal en varios componentes:
+
+* Tendencia (g(t)): Modela los cambios no periódicos en el valor de la serie temporal. Prophet implementa por defecto una tendencia lineal por partes, pero también permite una tendencia logística para modelar efectos de saturación.
+
+* Estacionalidad (s(t)): Representa los patrones periódicos, como la estacionalidad diaria, semanal y anual. Prophet utiliza series de Fourier para modelar estos efectos, lo que le permite adaptarse a múltiples periodos de estacionalidad simultáneamente.
+
+* Festivos (h(t)): Permite incorporar el impacto de eventos específicos y predecibles (como días festivos, lanzamientos de productos, etc.) que pueden afectar la serie temporal. El usuario debe proporcionar una lista de estos eventos y sus fechas.
+
+* Término de error (Et): Representa el ruido aleatorio que no se explica por los otros componentes del modelo.
+
+##### ¿Para qué sirve Prophet en nuestro caso, enfocado la predicción de valores de ETFs?
+
+En el contexto específico de la predicción de valores futuros de acciones de ETFs, Prophet puede ser útil por varias razones:
+
+1. Primeramente, este captura la estacionalidad: A que me refiero, aunque los mercados financieros no siempre presentan una estacionalidad tan marcada como, por ejemplo, las ventas minoristas, pueden existir patrones semanales (efectos de fin de semana) o incluso anuales sutiles relacionados con ciclos económicos o comportamiento de inversores. Prophet puede intentar identificar y modelar estos patrones.
+2. Por otro lado, ofrece la opción de manejar las tendencias: Los precios de los ETFs obviamente tienen tendencias a largo plazo influenciadas por el rendimiento de los activos subyacentes, las condiciones económicas generales y el sentimiento del mercado. Prophet puede modelar estas tendencias, aunque su capacidad para predecir cambios bruscos en la tendencia (como los causados por eventos inesperados) es limitada.
+3. Además, también incorpora en el modelo la variable de los eventos conocidos: Si bien es difícil predecir eventos futuros que impacten significativamente el mercado, Prophet permite incorporar el efecto de eventos pasados conocidos (como anuncios de políticas económicas, resultados empresariales importantes dentro del ETF, etc.) si se dispone de datos sobre su impacto. Esto puede ayudar a mejorar el ajuste del modelo a la historia.
+4. Robustez y facilidad del uso de este modelo: Prophet es relativamente robusto ante datos faltantes y cambios en la varianza de la serie temporal. Además, su API en Python y R es bastante intuitiva, lo que facilita su implementación y ajuste, incluso para usuarios con menos experiencia en modelado de series temporales.
+5. Otro gran punto a favor de este modelo frente a otros, es, la generación de intervalos de incertidumbre: Prophet proporciona intervalos de confianza para sus predicciones, lo que te da una idea del rango de posibles valores futuros y te ayuda a evaluar la incertidumbre asociada a la predicción.
+6. Velocidad y escalabilidad es otro de los factores positivos que te presenta este modelo: Prophet está diseñado para manejar grandes conjuntos de datos y realizar predicciones de manera eficiente, lo cual puede ser útil si estás trabajando con muchos ETFs o con series temporales largas.
+7. Y finalmente otra de las grandes virtudes que proporciona el prohet para la predicción de valores es, el manejo que tr ofrece frente a los datos faltantes: Prophet puede manejar razonablemente bien los datos faltantes en la serie temporal sin necesidad de imputación previa.
+Sin embargo, es crucial tener en cuenta las limitaciones de Prophet al predecir valores de ETFs:
 
 
 #### Modelos de Clasificación
