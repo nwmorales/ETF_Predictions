@@ -77,20 +77,11 @@ El modelo de regresión lineal busca identificar y cuantificar la relación line
 
 ##### Puntos fuertes de un modelo de Regresión Lineal en el contexto de la predicción de ETFs:
 
-Simplicidad e interpretabilidad: Los modelos de regresión lineal son relativamente fáciles de entender e interpretar. Los coeficientes (β) indican la dirección y la magnitud del efecto de cada variable predictora sobre la variable dependiente. Esto puede proporcionar información valiosa sobre los factores que influyen en el precio del ETF.
-Rapidez y eficiencia: El entrenamiento y la predicción con modelos de regresión lineal son computacionalmente eficientes, incluso con grandes conjuntos de datos.
+* Simplicidad e interpretabilidad: Los modelos de regresión lineal son relativamente fáciles de entender e interpretar. Los coeficientes (β) indican la dirección y la magnitud del efecto de cada variable predictora sobre la variable dependiente. Esto puede proporcionar información valiosa sobre los factores que influyen en el precio del ETF.
+* Rapidez y eficiencia: El entrenamiento y la predicción con modelos de regresión lineal son computacionalmente eficientes, incluso con grandes conjuntos de datos.
 Base estadística sólida: La regresión lineal tiene una base estadística bien establecida, con métricas y pruebas para evaluar la bondad del ajuste del modelo y la significancia de las variables predictoras (por ejemplo, R-cuadrado, pruebas t, pruebas F).
-Flexibilidad en la inclusión de variables: Permite incorporar una amplia variedad de variables predictoras que se consideren relevantes para el precio del ETF.
+* Flexibilidad en la inclusión de variables: Permite incorporar una amplia variedad de variables predictoras que se consideren relevantes para el precio del ETF.
 Puede capturar relaciones lineales: Si la relación entre las variables predictoras y el precio del ETF es aproximadamente lineal, la regresión lineal puede proporcionar buenas predicciones.
-Sin embargo, también existen limitaciones importantes al usar la Regresión Lineal para predecir valores de ETFs:
-
-Supuesto de linealidad: La regresión lineal asume una relación lineal entre las variables. Si la relación real es no lineal, el modelo puede no capturarla adecuadamente y las predicciones pueden ser inexactas. Los mercados financieros a menudo presentan relaciones complejas y no lineales.
-Sensibilidad a valores atípicos: Los valores atípicos en los datos pueden tener una influencia desproporcionada en los coeficientes del modelo y afectar negativamente las predicciones. Los movimientos bruscos de precios en los mercados de valores pueden ser problemáticos.
-Supuesto de independencia de los errores: La regresión lineal clásica asume que los errores son independientes entre sí. En series temporales financieras, a menudo existe autocorrelación (el error en un momento dado está correlacionado con errores pasados), lo que viola este supuesto y puede llevar a inferencias incorrectas.
-Estacionariedad: Muchos modelos de regresión lineal funcionan mejor con series temporales estacionarias (aquellas cuyas propiedades estadísticas como la media y la varianza no cambian con el tiempo). Los precios de las acciones y los ETFs suelen ser no estacionarios, lo que puede requerir transformaciones de los datos (como la diferenciación) antes de aplicar la regresión.
-Multicolinealidad: Si las variables predictoras están altamente correlacionadas entre sí (multicolinealidad), puede ser difícil determinar el efecto individual de cada variable en el precio del ETF, y los coeficientes pueden volverse inestables.
-No captura la dinámica temporal compleja: Un modelo de regresión lineal básico no captura inherentemente la dinámica temporal compleja, la volatilidad cambiante o la estacionalidad (a menos que se incluyan variables específicas para modelar estos efectos).
-Dificultad para predecir puntos de inflexión: La regresión lineal, al basarse en relaciones históricas, puede tener dificultades para predecir puntos de inflexión o cambios repentinos en la tendencia del precio del ETF causados por eventos inesperados.
 
 #### Prophet
 
