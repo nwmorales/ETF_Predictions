@@ -112,6 +112,96 @@ Sin embargo, es crucial tener en cuenta las limitaciones de Prophet al predecir 
 
 #### Redes Neuronales
 
+##### Que es una red neuronal ?
+Una red neuronal artificial (RNA) es un modelo computacional perteneciente al campo del aprendizaje automático, cuyo diseño se inspira en la estructura y funcionamiento del sistema nervioso biológico. Este tipo de arquitectura resulta especialmente eficaz para abordar problemas de alta complejidad que presentan limitaciones para los enfoques algorítmicos tradicionales, como es el caso del reconocimiento de imágenes, el procesamiento del lenguaje natural (PLN) o la traducción automática.
+
+Las redes neuronales están conformadas por unidades elementales denominadas neuronas artificiales, las cuales se agrupan en capas (de entrada, ocultas y de salida) y se interconectan mediante enlaces ponderados. Cada neurona recibe un conjunto de señales de entrada, las procesa mediante una función de activación no lineal y propaga el resultado hacia las neuronas de la capa siguiente. Los pesos asignados a cada conexión cuantifican la influencia de una neurona sobre otra y constituyen los parámetros ajustables del modelo.
+
+Durante la fase de entrenamiento, típicamente mediante algoritmos de optimización basados en retropropagación del error y descenso del gradiente, los pesos son modificados iterativamente con el objetivo de minimizar una función de coste definida sobre un conjunto de datos de entrenamiento. Este mecanismo de ajuste permite a la red neuronal aprender representaciones internas de los datos y generalizar patrones subyacentes, habilitando así su aplicación en tareas de predicción, clasificación o generación de contenido, entre otras.
+
+#### En nuestro caso en concreto usamos una Red Neuronal Recurrente o RNN
+##### ¿Qué es un modelo de predicción basado en una Red Neuronal Recurrente (RNN)?
+
+Una Red Neuronal Recurrente (RNN) es un tipo de red neuronal diseñada específicamente para procesar secuencias de datos, donde el orden y la dependencia temporal entre los elementos son importantes. A diferencia de las redes neuronales feedforward tradicionales, las RNN tienen conexiones que forman ciclos, lo que les permite mantener un estado interno (memoria) que captura información sobre las entradas pasadas en la secuencia.
+
+En el contexto de la predicción de series temporales como los precios de ETFs, una RNN puede aprender patrones y dependencias a lo largo del tiempo. Por ejemplo, podría aprender que una secuencia de aumentos en el volumen de negociación a menudo precede a un aumento en el precio.
+
+La arquitectura básica de una RNN implica que la salida de una capa en un paso de tiempo se alimenta de nuevo a la misma capa en el siguiente paso de tiempo. Esto permite que la red "recuerde" información de pasos anteriores en la secuencia.
+
+LSTM (Long Short-Term Memory): Una RNN con Memoria a Largo Plazo
+
+Aunque las RNN teóricamente pueden aprender dependencias a largo plazo, en la práctica, las RNN simples sufren de un problema conocido como el "desvanecimiento del gradiente" (y el problema opuesto, la "explosión del gradiente"). Esto dificulta que la red aprenda y retenga información de pasos de tiempo muy lejanos en la secuencia.
+
+Las redes LSTM son una arquitectura especial de RNN diseñada para superar estos problemas y capturar dependencias a largo plazo de manera más efectiva. Introducen un mecanismo llamado "celda de memoria" y "puertas" (gates) que controlan el flujo de información dentro de la red:
+
+Celda de Memoria: Actúa como una "memoria" a largo plazo, capaz de almacenar información durante períodos prolongados.
+Puerta de Olvido (Forget Gate): Decide qué información de la celda de memoria anterior debe olvidarse.
+Puerta de Entrada (Input Gate): Decide qué nueva información de la entrada actual debe almacenarse en la celda de memoria.
+Puerta de Salida (Output Gate): Decide qué información de la celda de memoria debe enviarse a la salida actual de la red.
+Estas puertas utilizan funciones sigmoideas para producir valores entre 0 y 1, actuando como interruptores que modulan el flujo de información. La combinación de estas puertas permite a las LSTM aprender cuándo retener información importante durante largos períodos y cuándo descartar información irrelevante.
+
+¿Para qué sirve un modelo basado en una Red Neuronal Recurrente (LSTM) en la predicción de valores de ETFs?
+
+En la predicción de valores futuros de ETFs, un modelo LSTM puede ser muy útil por su capacidad para:
+
+Capturar dependencias temporales complejas: Los precios de los ETFs están influenciados por una compleja interacción de factores a lo largo del tiempo. Las LSTM pueden aprender patrones secuenciales que podrían ser difíciles de capturar con modelos lineales como la regresión lineal. Por ejemplo, podrían identificar patrones de volatilidad, tendencias a corto y mediano plazo, y posibles efectos de "momentum".
+Modelar la volatilidad: Aunque no modelan directamente la volatilidad como algunos modelos específicos (como los modelos GARCH), las LSTM pueden aprender patrones en la volatilidad histórica y, potencialmente, predecir cambios en la volatilidad futura.
+Manejar secuencias de entrada largas: La capacidad de las LSTM para retener información a largo plazo les permite procesar secuencias de precios históricos más extensas y capturar dependencias que se extienden durante períodos de tiempo más largos.
+Incorporar múltiples variables de entrada: Al igual que la regresión lineal, las LSTM pueden tomar múltiples series temporales como entrada (por ejemplo, precios históricos del ETF, volúmenes, precios de otros activos relacionados, indicadores técnicos) para realizar la predicción. La red puede aprender las complejas interrelaciones temporales entre estas variables y el precio futuro del ETF.
+Puntos fuertes de un modelo basado en LSTM en el contexto de la predicción de ETFs:
+
+Capacidad para aprender dependencias a largo plazo: Esta es la principal ventaja de las LSTM sobre las RNN simples y los modelos tradicionales de series temporales. Pueden capturar patrones que se desarrollan durante períodos de tiempo extensos.
+Manejo de secuencias complejas: Las LSTM son capaces de modelar relaciones no lineales y dependencias temporales intrincadas que pueden existir en los mercados financieros.
+Adaptabilidad a diferentes patrones: La arquitectura flexible de las LSTM les permite adaptarse a una variedad de patrones y dinámicas en los datos del precio del ETF.
+Potencial para mejorar la precisión en mercados volátiles: En mercados con alta volatilidad y patrones complejos, las LSTM podrían superar a modelos más simples que asumen linealidad o dependencias temporales más cortas.
+Sin embargo, también existen desafíos y limitaciones al usar LSTM para predecir valores de ETFs:
+
+Mayor complejidad y necesidad de datos: Los modelos LSTM son más complejos que la regresión lineal y generalmente requieren una mayor cantidad de datos para entrenarse de manera efectiva y evitar el sobreajuste (overfitting).
+Mayor costo computacional: El entrenamiento de redes LSTM puede ser significativamente más costoso en términos de tiempo y recursos computacionales en comparación con modelos lineales.
+Dificultad de interpretación: Las decisiones tomadas por una red neuronal LSTM son inherentemente más difíciles de interpretar que los coeficientes de un modelo de regresión lineal. Entender por qué la red realiza una predicción particular puede ser un desafío.
+Ajuste de hiperparámetros: El rendimiento de una LSTM depende en gran medida de la elección de sus hiperparámetros (por ejemplo, número de capas, número de unidades en cada capa, tasa de aprendizaje, función de activación). Encontrar la configuración óptima requiere experimentación y validación cuidadosas.
+Sensibilidad a la calidad de los datos: Al igual que otros modelos de aprendizaje automático, las LSTM son sensibles a la calidad y la representación de los datos de entrada. Datos ruidosos o mal preprocesados pueden afectar negativamente el rendimiento del modelo.
+Riesgo de sobreajuste: Dada su complejidad, las LSTM son propensas al sobreajuste, especialmente si el conjunto de datos de entrenamiento no es lo suficientemente grande o diverso. Se requieren técnicas de regularización para mitigar este riesgo.
+No predicen eventos inesperados: Al igual que otros modelos basados en datos históricos, las LSTM no pueden predecir eventos futuros completamente inesperados ("cisnes negros") que pueden tener un impacto significativo en los mercados financieros.
+
+
+
+
+### Diferencias y similitudes clave entre un modelo de regresión lineal y una red neuronal artificial (RNA)
+
+Las Similitudes principales són las siguientes:
+
+* Modelo paramétrico supervisado: Ambos enfoques pertenecen a la categoría de modelos de aprendizaje supervisado y requieren un conjunto de datos etiquetado para su entrenamiento. Además, son modelos paramétricos, es decir, aprenden una serie de parámetros (pesos) que definen la relación entre las variables de entrada y la salida.
+* Función de salida basada en una combinación lineal de entradas: En su forma más básica, una neurona artificial realiza una combinación lineal de las entradas ponderadas por sus respectivos pesos, lo cual es conceptualmente equivalente a la formulación de la regresión lineal. En una red neuronal de una sola capa y sin funciones de activación no lineales, el comportamiento del modelo es efectivamente el de una regresión lineal.
+* Optimización mediante descenso del gradiente: Ambos modelos pueden entrenarse mediante métodos de optimización basados en descenso del gradiente para minimizar una función de pérdida (por ejemplo, el error cuadrático medio).
+
+Las diferencias principales por otro lado són:
+
+* Capacidad de modelado no lineal: La regresión lineal modela únicamente relaciones lineales entre las variables de entrada y la salida. Por el contrario, las redes neuronales incorporan funciones de activación no lineales (como ReLU, sigmoide, tanh), lo que les permite aproximar funciones no lineales complejas y capturar relaciones de mayor nivel entre las variables.
+* Arquitectura del modelo: La regresión lineal consiste en una única combinación lineal de entradas (una sola capa sin no linealidades), mientras que una red neuronal puede tener múltiples capas ocultas (modelo de red neuronal profunda o deep learning), lo que la convierte en un modelo jerárquico capaz de aprender representaciones de alto nivel.
+* Capacidad de generalización y expresividad: Las redes neuronales, debido a su arquitectura más compleja, tienen una mayor capacidad de representación (teóricamente, pueden aproximar cualquier función continua bajo ciertas condiciones, como establece el teorema de aproximación universal). Esto las hace más adecuadas para tareas como visión por computador o procesamiento de lenguaje, mientras que la regresión lineal se queda limitada a contextos donde las relaciones sean más simples y lineales.
+* Requisitos computacionales y entrenamiento: Entrenar una red neuronal es computacionalmente más costoso y requiere técnicas adicionales como regularización (dropout, L2), optimizadores avanzados (Adam, RMSprop), y puede presentar problemas como el sobreajuste o el estancamiento del gradiente. En cambio, la regresión lineal tiene una solución analítica cerrada en muchos casos, y su entrenamiento es considerablemente más eficiente y estable.
+* Interpretabilidad: La regresión lineal ofrece una interpretación directa y clara de los coeficientes como la influencia marginal de cada variable sobre la salida, lo cual es útil para análisis explicativo. Las redes neuronales, por su complejidad, se consideran modelos de caja negra, donde la interpretación de los pesos no es trivial y a menudo se requiere el uso de técnicas específicas de interpretabilidad (SHAP, LIME, saliency maps, etc.).
+
+### En la siguiente tabla se presenta una comparación entre el modelo de regresión lineal y una red neuronal artificial, destacando sus principales similitudes y diferencias en términos de capacidad de modelado, arquitectura, interpretabilidad y aplicaciones.
+
+### Comparativa entre Red Neuronal Artificial (RNA) y Regresión Lineal
+
+| Aspecto                                   | Regresión Lineal                                                                 | Red Neuronal Artificial (RNA)                                                      |
+|------------------------------------------|----------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| **Tipo de modelo**                        | Supervisado, paramétrico                                                         | Supervisado, paramétrico                                                           |
+| **Relación entre variables**              | Lineal                                                                           | Puede modelar relaciones no lineales                                               |
+| **Arquitectura**                          | Una sola capa (modelo plano)                                                     | Múltiples capas (modelo jerárquico, deep learning)                                 |
+| **Función de salida**                     | Combinación lineal de entradas                                                    | Combinación lineal seguida de funciones de activación no lineales                  |
+| **Capacidad de representación**           | Limitada a relaciones lineales                                                   | Capacidad universal de aproximación de funciones complejas                         |
+| **Método de entrenamiento**               | Solución analítica (cuando es posible) o descenso del gradiente                   | Descenso del gradiente con retropropagación, optimización iterativa               |
+| **Computación y recursos**                | Requiere pocos recursos computacionales                                          | Requiere mayor capacidad computacional (CPU/GPU)                                   |
+| **Interpretabilidad**                     | Alta: coeficientes directamente interpretables                                   | Baja: modelo tipo “caja negra”; requiere técnicas específicas de interpretabilidad |
+| **Riesgo de sobreajuste**                 | Bajo en general                                                                  | Alto si no se regula adecuadamente                                                 |
+| **Ámbitos de aplicación**                 | Problemas con relaciones lineales claras (predicción simple, análisis explicativo) | Tareas complejas como visión por computador, PLN, clasificación no lineal         |
+
+
+
 #### Modelos de Clasificación
 
 
