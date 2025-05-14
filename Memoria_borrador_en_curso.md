@@ -243,9 +243,9 @@ Las principales ventajas de este enfoque visual e integrado, especialmente relev
 - Rapidez de Prototipado y Experimentación: Permite construir, modificar y comparar diferentes flujos de trabajo de preprocesamiento y modelado de forma muy ágil, conectando y desconectando widgets.
 - Interactividad y Comprensión: La capacidad de inspeccionar los datos o los resultados intermedios en casi cualquier punto del flujo de trabajo fomenta una comprensión más profunda del proceso y de los datos mismos.
 
-## **3. Metodología y Diseño del Sistema**
+## 3. Metodología y Diseño del Sistema
 
-### **Adquisición de Datos**
+### 3.1. Adquisición de Datos
 
 #### Fuente de Datos: Kaggle
 Una de las fuentes primarias de datos para nuestro proyecto fue la plataforma Kaggle. Específicamente, se utilizó el conjunto de datos "Mutual Funds and ETFs", aportado por el usuario Stefano Leone (stefanoleone992). Dentro de este conjunto de datos más amplio, el análisis y las predicciones desarrolladas en este trabajo se centran exclusivamente en la información contenida en el archivo ETF prices.csv.
@@ -274,7 +274,7 @@ Una observación inicial del archivo ETF prices.csv revela su considerable tama�
 
 
 
-### Preprocesamiento y Análisis Exploratorio de Datos (EDA)
+### 3.2. Preprocesamiento y Análisis Exploratorio de Datos (EDA)
 
 #### Entorno y Herramientas de Preprocesamiento
 
@@ -283,7 +283,7 @@ Una observación inicial del archivo ETF prices.csv revela su considerable tama�
 #### Análisis Exploratorio de Datos (EDA)
 
 
-### Diseño e Implementación de la Arquitectura Big Data
+### 3.3. Diseño e Implementación de la Arquitectura Big Data
 
 #### Contenerización con Docker
 
