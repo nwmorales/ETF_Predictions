@@ -248,21 +248,22 @@ Las principales ventajas de este enfoque visual e integrado, especialmente relev
 ### Adquisición de Datos
 
 #### Fuente de Datos: Kaggle
-Una de las fuentes primarias de datos para el presente proyecto fue la plataforma Kaggle, reconocida como un importante repositorio en línea de datasets públicos y una comunidad para profesionales de la ciencia de datos. Específicamente, se utilizó el conjunto de datos titulado "Mutual Funds and ETFs", aportado por el usuario Stefano Leone (stefanoleone992) [1]. Dentro de este conjunto de datos más amplio, el análisis y las predicciones desarrolladas en este trabajo se centran exclusivamente en la información contenida en el archivo ETF prices.csv.
+Una de las fuentes primarias de datos para nuestro proyecto fue la plataforma Kaggle. Específicamente, se utilizó el conjunto de datos "Mutual Funds and ETFs", aportado por el usuario Stefano Leone (stefanoleone992). Dentro de este conjunto de datos más amplio, el análisis y las predicciones desarrolladas en este trabajo se centran exclusivamente en la información contenida en el archivo ETF prices.csv.
 
-El archivo ETF prices.csv contiene precios históricos diarios y volumen de negociación para una extensa colección de Fondos Cotizados en Bolsa (ETFs). Si bien el dataset general también incluye fondos mutuos, este archivo se enfoca específicamente en ETFs que, dado el contexto del conjunto de datos, están predominantemente listados y negociados en mercados de Estados Unidos (EEUU). Esto proporciona una amplia gama de instrumentos que abarcan diversos índices, sectores (como tecnología, salud, finanzas), clases de activos (renta variable, renta fija, etc.) y estrategias de inversión dentro del mercado estadounidense.
+El archivo ETF prices.csv contiene precios históricos diarios y volumen de negociación para una extensa colección de Fondos Cotizados en Bolsa (ETFs). Si bien el dataset general también incluye fondos mutuos, este archivo se enfoca específicamente en ETFs que, dado el contexto del conjunto de datos, están predominantemente listados y negociados en mercados de Estados Unidos (EEUU).
 
-Las variables (columnas) principales identificadas y utilizadas de este archivo para el análisis son las siguientes:
+Las columnas principales identificadas y utilizadas de este archivo para el análisis son las siguientes:
 
-- fund_symbol: (Texto) Símbolo o ticker del ETF, que actúa como identificador único en el mercado.
-- price_date: (Fecha) Fecha específica, en formato AAAA-MM-DD, a la que corresponden los datos de la fila.
-- open: (Numérico) Precio de apertura del ETF en la jornada bursátil de price_date.
-- high: (Numérico) Precio máximo alcanzado por el ETF durante la sesión de price_date.
-- low: (Numérico) Precio mínimo alcanzado por el ETF durante la sesión de price_date.
-- close: (Numérico) Precio del ETF al cierre de la jornada bursátil de price_date.
-- adj_close: (Numérico) Precio de cierre ajustado. Este valor es fundamental para el análisis de rendimientos, ya que se corrige para reflejar eventos corporativos como el pago de dividendos y desdoblamientos de acciones (splits), ofreciendo una representación más precisa de la rentabilidad real de la inversión.
-- volume: (Numérico Entero) Número total de acciones del ETF negociadas durante la sesión en price_date, siendo un indicador clave de la liquidez del activo.
-- Los datos contenidos en el archivo ETF prices.csv cubren un extenso periodo histórico, abarcando desde el 29 de enero de 1993 hasta el 27 de marzo de 2024. Es relevante destacar que no todos los ETFs presentan datos para la totalidad de este intervalo, ya que la disponibilidad de su historial depende de la - fecha de creación o liquidación de cada fondo específico.
+- fund_symbol: Símbolo o ticker del ETF, que actúa como identificador único en el mercado.
+- price_date: Fecha específica, en formato AAAA-MM-DD, a la que corresponden los datos de la fila.
+- open: Precio de apertura del ETF en la jornada bursátil de price_date.
+- high: Precio máximo alcanzado por el ETF durante la sesión de price_date.
+- low: Precio mínimo alcanzado por el ETF durante la sesión de price_date.
+- close: Precio del ETF al cierre de la jornada bursátil de price_date.
+- adj_close: Precio de cierre ajustado. Este valor es fundamental para el análisis de rendimientos, ya que se corrige para reflejar eventos corporativos como el pago de dividendos y desdoblamientos de acciones (splits), ofreciendo una representación más precisa de la rentabilidad real de la inversión.
+- volume: Número total de acciones del ETF negociadas durante la sesión en price_date, siendo un indicador clave de la liquidez del activo.
+
+Los datos contenidos en el archivo ETF prices.csv cubren un extenso periodo histórico, abarcando desde el 29 de enero de 1993 hasta el 27 de marzo de 2024. Es relevante destacar que no todos los ETFs presentan datos para la totalidad de este intervalo, ya que la disponibilidad de su historial depende de la fecha de creación o liquidación de cada fondo específico.
 
 La obtención del archivo ETF prices.csv se realizó mediante la descarga manual directa desde la página del dataset "Mutual Funds and ETFs" en la plataforma Kaggle, accesible en https://www.kaggle.com/datasets/stefanoleone992/mutual-funds-and-etfs/data.
 
@@ -270,7 +271,7 @@ Una observación inicial del archivo ETF prices.csv revela su considerable tama�
 
 
 #### Fuente de Datos: API de Yahoo Finance
-Complementariamente, se accedió a datos históricos y actualizados de ETFs mediante la API de Yahoo Finance. Para ello, se utilizó la librería yfinance de Python para realizar consultas programadas. Se seleccionaron [N o criterios] ETFs, incluyendo [mencionar algunos ejemplos clave como SPY, QQQ, etc.], para los cuales se extrajeron datos de precios OHLCV y volumen para el periodo comprendido entre [Fecha Inicio] y [Fecha Final]. Se implementaron [Manejo de errores] para gestionar las limitaciones de frecuencia de la API.
+
 
 
 ### Preprocesamiento y Análisis Exploratorio de Datos (EDA)
