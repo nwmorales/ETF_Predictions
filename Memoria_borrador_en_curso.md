@@ -243,9 +243,9 @@ Las principales ventajas de este enfoque visual e integrado, especialmente relev
 - Rapidez de Prototipado y Experimentación: Permite construir, modificar y comparar diferentes flujos de trabajo de preprocesamiento y modelado de forma muy ágil, conectando y desconectando widgets.
 - Interactividad y Comprensión: La capacidad de inspeccionar los datos o los resultados intermedios en casi cualquier punto del flujo de trabajo fomenta una comprensión más profunda del proceso y de los datos mismos.
 
-## 3. Metodología y Diseño del Sistema
+## **3. Metodología y Diseño del Sistema**
 
-### Adquisición de Datos
+### **Adquisición de Datos**
 
 #### Fuente de Datos: Kaggle
 Una de las fuentes primarias de datos para nuestro proyecto fue la plataforma Kaggle. Específicamente, se utilizó el conjunto de datos "Mutual Funds and ETFs", aportado por el usuario Stefano Leone (stefanoleone992). Dentro de este conjunto de datos más amplio, el análisis y las predicciones desarrolladas en este trabajo se centran exclusivamente en la información contenida en el archivo ETF prices.csv.
@@ -254,14 +254,14 @@ El archivo ETF prices.csv contiene precios históricos diarios y volumen de nego
 
 Las columnas principales identificadas y utilizadas de este archivo para el análisis son las siguientes:
 
-- fund_symbol: Símbolo o ticker del ETF, que actúa como identificador único en el mercado.
-- price_date: Fecha específica, en formato AAAA-MM-DD, a la que corresponden los datos de la fila.
-- open: Precio de apertura del ETF en la jornada bursátil de price_date.
-- high: Precio máximo alcanzado por el ETF durante la sesión de price_date.
-- low: Precio mínimo alcanzado por el ETF durante la sesión de price_date.
-- close: Precio del ETF al cierre de la jornada bursátil de price_date.
-- adj_close: Precio de cierre ajustado. Este valor es fundamental para el análisis de rendimientos, ya que se corrige para reflejar eventos corporativos como el pago de dividendos y desdoblamientos de acciones (splits), ofreciendo una representación más precisa de la rentabilidad real de la inversión.
-- volume: Número total de acciones del ETF negociadas durante la sesión en price_date, siendo un indicador clave de la liquidez del activo.
+- **fund_symbol**: Símbolo o ticker del ETF, que actúa como identificador único en el mercado.
+- **price_date**: Fecha específica, en formato _AAAA-MM-DD_, a la que corresponden los datos de la fila.
+- **open**: Precio de apertura del ETF en la jornada bursátil de _price_date_.
+- **high**: Precio máximo alcanzado por el ETF durante la sesión de _price_date_.
+- **low**: Precio mínimo alcanzado por el ETF durante la sesión de _price_date_.
+- **close**: Precio del ETF al cierre de la jornada bursátil de _price_date_.
+- **adj_close**: Precio de cierre ajustado. Este valor es fundamental para el análisis de rendimientos, ya que se corrige para reflejar eventos corporativos como el pago de dividendos y desdoblamientos de acciones (splits), ofreciendo una representación más precisa de la rentabilidad real de la inversión.
+- **volume**: Número total de acciones del ETF negociadas durante la sesión en price_date, siendo un indicador clave de la liquidez del activo.
 
 Los datos contenidos en el archivo ETF prices.csv cubren un extenso periodo histórico, abarcando desde el 29 de enero de 1993 hasta el 27 de marzo de 2024. Es relevante destacar que no todos los ETFs presentan datos para la totalidad de este intervalo, ya que la disponibilidad de su historial depende de la fecha de creación o liquidación de cada fondo específico.
 
