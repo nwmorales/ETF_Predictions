@@ -248,7 +248,18 @@ Las principales ventajas de este enfoque visual e integrado, especialmente relev
 ### Adquisición de Datos
 
 #### Fuente de Datos: Kaggle
-Una de las fuentes de datos para este proyecto fue un conjunto de datos obtenido de la plataforma Kaggle, denominado 'Nombre del dataset'. Este dataset contenía información histórica de precios [especificar variables] para una selección de [X] ETFs estadounidenses, cubriendo el periodo desde [Fecha Inicio] hasta [Fecha Final]. Los datos se obtuvieron mediante descarga directa del archivo CSV proporcionado en la plataforma.
+Una de las fuentes primarias de datos para este proyecto fue el conjunto de datos público denominado "Mutual Funds and ETFs", obtenido de la plataforma Kaggle [1]. Específicamente, se utilizó el archivo ETF prices.csv de dicho conjunto, el cual contiene datos históricos diarios de precios y volumen para una amplia colección de Fondos Cotizados en Bolsa (ETFs) que cotizan en los mercados de Estados Unidos. Este archivo ofrece una cobertura diversa, incluyendo ETFs de distintos sectores, clases de activos y estrategias de inversión, reflejando la amplitud del mercado estadounidense.
+
+Las variables fundamentales presentes en el archivo ETF prices.csv para cada ETF y día de negociación son:
+
+- fund_symbol: Un identificador textual único (ticker) para cada ETF.
+- price_date: La fecha (formato AAAA-MM-DD) a la que corresponden los datos.
+- open: El precio de apertura del ETF en la jornada.
+- high: El precio máximo alcanzado durante la jornada.
+- low: El precio mínimo alcanzado durante la jornada.
+- close: El precio de cierre del ETF.
+- adj_close: El precio de cierre ajustado, crucial para análisis de rendimiento a largo plazo al incorporar dividendos y splits.
+- volume: El número total de acciones negociadas durante la jornada, indicador de liquidez.
 
 #### Fuente de Datos: API de Yahoo Finance
 Complementariamente, se accedió a datos históricos y actualizados de ETFs mediante la API de Yahoo Finance. Para ello, se utilizó la librería yfinance de Python para realizar consultas programadas. Se seleccionaron [N o criterios] ETFs, incluyendo [mencionar algunos ejemplos clave como SPY, QQQ, etc.], para los cuales se extrajeron datos de precios OHLCV y volumen para el periodo comprendido entre [Fecha Inicio] y [Fecha Final]. Se implementaron [Manejo de errores] para gestionar las limitaciones de frecuencia de la API.
