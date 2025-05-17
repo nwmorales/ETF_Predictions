@@ -43,7 +43,7 @@ La arquitectura de la solución está diseñada para manejar el ciclo de vida co
     * Archivo específico utilizado: ETF prices.csv
     * Contenido: Precios históricos diarios (OHLCV) y volumen para una amplia gama de ETFs de EEUU, cubriendo desde el 29 de enero de 1993 hasta el 31 de Noviembre de 2021.
 * **Yahoo Finance API:**
-    * [**COMPLETAR POR EL USUARIO:** Propósito de uso (ej. "para obtener datos más recientes no cubiertos por el dataset de Kaggle" o "para ETFs específicos"). Especificar la librería de Python si se usó, ej. `yfinance`].
+    * Para obtener datos más recientes no cubiertos por el dataset de Kaggle y para los 20 ETFs seleccionados tras nuestro analisis de datos la libreria utilizada en pyton fue: `yfinance`.
 
 ## Estructura del Proyecto
 ![image](https://github.com/user-attachments/assets/c678bb16-eb0e-4ed0-8128-9414aacacef3)
@@ -97,7 +97,6 @@ La arquitectura de la solución está diseñada para manejar el ciclo de vida co
         ```bash
         docker-compose -f BigData/Docker/docker-compose.yml exec cassandra cqlsh 
         ```
-        *(Ajusta la ruta al yml si ejecutas desde la raíz del proyecto)*
 
 ## Uso del Proyecto
 
@@ -129,13 +128,21 @@ La arquitectura de la solución está diseñada para manejar el ciclo de vida co
 
 ## Resultados Clave (Resumen)
 * La arquitectura Big Data fue implementada exitosamente, permitiendo el flujo de datos desde la ingesta hasta el almacenamiento distribuido.
-* [**COMPLETAR POR EL USUARIO/COMPAÑERO:** Añadir 1-2 resultados clave del análisis o de los modelos predictivos una vez disponibles. Ej: "El modelo X alcanzó una métrica Y de Z."].
+* Resultados de la Evaluación de Modelos de Regresión en Orange Datamining
+  
+![image](https://github.com/user-attachments/assets/21f30618-6046-4cc1-937e-31ae842e6096)
+
+* Resultados graficados de la Predicción Futura basada en Prophet para SPY
+  
+![image](https://github.com/user-attachments/assets/22c3d956-a586-4baa-92e6-3441195e9f0a)
+
+
 * *(Para más detalles, consultar la memoria completa del proyecto (`memoria.doc`)).*
 
 ## Trabajos Futuros
-* [**COMPLETAR POR EL USUARIO:** Idea 1, ej: Mejorar la ingesta de datos para que sea en tiempo real desde la API de Yahoo Finance].
-* [**COMPLETAR POR EL USUARIO:** Idea 2, ej: Probar arquitecturas de Redes Neuronales más avanzadas como Transformers].
-* [**COMPLETAR POR EL USUARIO/COMPAÑERO:** Idea 3, ej: Desarrollar un sistema de backtesting para las predicciones].
+* Mejorar la ingesta de datos para que sea en tiempo real desde la API de Yahoo Finance].
+* Probar arquitecturas de Redes Neuronales más avanzadas como Transformers].
+* Desarrollar un sistema de backtesting para las predicciones].
 
 ## Licencia
 Distribuido bajo la Licencia MIT. Ver `LICENSE` para más información.
@@ -144,4 +151,4 @@ Distribuido bajo la Licencia MIT. Ver `LICENSE` para más información.
 ## Agradecimientos
 * A Stefano Leone por el dataset "Mutual Funds and ETFs" disponible en Kaggle.
 * A las comunidades de desarrollo de Apache NiFi, Hadoop, Cassandra, Docker, Python, Orange y Power BI.
-* [**COMPLETAR POR EL USUARIO:** Agradecimientos a profesores, tutores, universidad, etc.].
+* Y sobre todo agradecimientos tanto a Noa, Antonio y Antony por toda la ayuda y los consejos que nos habeis ofrecido, no solamente durante este proyecto sinó durante este curso.
