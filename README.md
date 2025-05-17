@@ -117,7 +117,7 @@ La arquitectura de la solución está diseñada para manejar el ciclo de vida co
         ```
 
 3.  **Análisis Exploratorio de Datos (EDA) y Modelado:**
-    * [**COMPLETAR POR EL USUARIO/COMPAÑERO:** Describe brevemente cómo ejecutar los notebooks o scripts de EDA y modelado. Indica la ubicación de los notebooks principales (ej. en la carpeta `Modelado/` o `Exploracion de datos/`). Ej: "Abrir el notebook `Modelado/entrenamiento_modelos.ipynb` en Google Colab o un entorno Jupyter local y ejecutar las celdas secuencialmente..."]
+    * Abrir el notebook `Prediccion.ipynb` en Google Colab o un entorno Jupyter local y ejecutar las celdas secuencialmente
     * [Menciona si los notebooks se conectan a Cassandra o leen datos exportados].
 
 4.  **Visualización (Power BI):**
