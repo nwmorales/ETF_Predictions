@@ -27,7 +27,7 @@ La arquitectura de la solución está diseñada para manejar el ciclo de vida co
 ## Tecnologías Utilizadas
 
 * **Lenguaje de Programación (Modelado y Scripts):** Python
-* **Análisis de Datos y ML (Python):** Pandas, NumPy, Scikit-learn, Prophet, [Especificar librerías de Redes Neuronales, ej: TensorFlow/Keras]
+* **Análisis de Datos y ML (Python):** Pandas, NumPy, Scikit-learn, Prophet, TensorFlow
 * **Contenerización y Orquestación:** Docker, Docker Compose
 * **Flujo de Datos (ETL):** Apache NiFi (versión 1.28.0)
 * **Almacenamiento Big Data:**
@@ -35,7 +35,7 @@ La arquitectura de la solución está diseñada para manejar el ciclo de vida co
     * Apache Cassandra (versión 4.1)
 * **Visualización de Datos:** Microsoft Power BI
 * **Minería de Datos Visual:** Orange Datamining
-* **Entorno de Desarrollo (Notebooks):** Google Colab, Jupyter Notebooks (si aplica)
+* **Entorno de Desarrollo (Notebooks):** Google Colab, Jupyter Notebooks
 
 ## Fuentes de Datos
 
