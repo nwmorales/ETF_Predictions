@@ -46,33 +46,8 @@ La arquitectura de la solución está diseñada para manejar el ciclo de vida co
     * [**COMPLETAR POR EL USUARIO:** Propósito de uso (ej. "para obtener datos más recientes no cubiertos por el dataset de Kaggle" o "para ETFs específicos"). Especificar la librería de Python si se usó, ej. `yfinance`].
 
 ## Estructura del Proyecto
-├── BigData/
-│   ├── Docker/
-│   │   └── docker-compose.yml
-│   ├── Hadoop/
-│   │   └── core-site.xml
-│   ├── Nifi/
-│   │   ├── ConfiguracionNifi.ipynb  # Notebook con guía/pasos para configurar Controller Services en NiFi
-│   │   └── ETF_Final (1).xml        # Plantilla del flujo de NiFi
-│   └── Python/                      # Scripts de Python auxiliares o de modelado (a detallar)
-├── Datasets/
-│   ├── ETF_cohortes.csv
-│   ├── ETFs.csv
-│   ├── top20_ETFs.csv
-│   └── ETF_cohortes_final_preprocesado.csv # Archivo de entrada principal para NiFi
-├── Exploracion de datos/
-│   ├── PowerBI/
-│   │   └── ETF.pbix
-│   └── OrangeDatamining/
-│       └── ETF_Orange_Datamining.ows
-├── Modelado/                          # Notebooks o scripts para el desarrollo y entrenamiento de modelos
-│   └── [Ej: 1_Modelo_RegresionLineal.ipynb]
-│   └── [Ej: 2_Modelo_Prophet.ipynb]
-│   └── [Ej: 3_Modelo_RedNeuronal.ipynb]
-│   └── [Ej: 4_Modelos_Clasificacion.ipynb]
-├── Proyecto final/                    # (Contenido a definir por el usuario, ej: entregables finales)
-├── memoria.doc                        # Documento de la memoria del proyecto
-└── README.md                          # Este archivo
+![image](https://github.com/user-attachments/assets/c678bb16-eb0e-4ed0-8128-9414aacacef3)
+
 
 ## Prerrequisitos
 
