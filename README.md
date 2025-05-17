@@ -17,7 +17,6 @@ La solución integra Docker y Docker Compose para la gestión y orquestación de
 * [Uso del Proyecto](#uso-del-proyecto)
 * [Resultados Clave (Resumen)](#resultados-clave-resumen)
 * [Trabajos Futuros](#trabajos-futuros)
-* [Licencia](#licencia)
 * [Agradecimientos](#agradecimientos)
 
 ## Arquitectura del Sistema
@@ -143,10 +142,6 @@ La arquitectura de la solución está diseñada para manejar el ciclo de vida co
 * Mejorar la ingesta de datos para que sea en tiempo real desde la API de Yahoo Finance].
 * Probar arquitecturas de Redes Neuronales más avanzadas como Transformers].
 * Desarrollar un sistema de backtesting para las predicciones].
-
-## Licencia
-Distribuido bajo la Licencia MIT. Ver `LICENSE` para más información.
-*(**Instrucción para ti:** Crea un archivo `LICENSE` en la raíz de tu proyecto y pega el texto de la licencia MIT si decides usarla. Puedes encontrarlo fácilmente online buscando "MIT License text").*
 
 ## Agradecimientos
 * A Stefano Leone por el dataset "Mutual Funds and ETFs" disponible en Kaggle.
