@@ -1,0 +1,142 @@
+version: '3.8'
+
+networks:
+  etf-net:
+    driver: bridge
+
+volumes:
+  # NiFi Volumes
+  nifi_conf:
+  nifi_database_repo:
+  nifi_flowfile_repo:
+  nifi_content_repo:
+  nifi_provenance_repo:
+  nifi_state:
+  nifi_logs:
+  # Cassandra Volume
+  cassandra_data:
+  # HDFS Volumes
+  hdfs_namenode:
+  hdfs_datanode1:
+  hdfs_datanode2:
+
+services:
+  # --- Cassandra Service ---
+  cassandra:
+    image: cassandra:4.1 # Version Cassandra
+    container_name: cassandra
+    hostname: cassandra
+    ports:
+      - "9042:9042" # Puerto para CQLSH y drivers
+    volumes:
+      - cassandra_data:/var/lib/cassandra #Persistencia de los datos de Cassandra
+    environment:
+      - CASSANDRA_CLUSTER_NAME=ETFCluster
+      - CASSANDRA_DC=DC1
+      - CASSANDRA_RACK=RAC1
+      - CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch
+    networks:
+      - etf-net
+    healthcheck:
+        test: ["CMD", "cqlsh", "-e", "describe keyspaces"]
+        interval: 15s
+        timeout: 10s
+        retries: 10
+
+  # --- HDFS NameNode Service ---
+  namenode:
+    image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8 # Imagen pre-configurada para NameNode
+    container_name: namenode
+    hostname: namenode
+    volumes:
+      - hdfs_namenode:/hadoop/dfs/name # Persistencia de metadatos del NameNode
+    environment:
+      - CLUSTER_NAME=etfcluster
+      # Configuracion HDFS crucial
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+      - HDFS_CONF_dfs_replication=2 	# 2 DataNodes
+    ports:
+      - "9870:9870" # Puerto Web UI HDFS NameNode
+      - "9000:9000" # Puerto HDFS (fs.defaultFS)
+    networks:
+      - etf-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9870"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # --- HDFS DataNode 1 Service ---
+  datanode1:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8 # Imagen pre-configurada para DataNode
+    container_name: datanode1
+    hostname: datanode1
+    volumes:
+      - hdfs_datanode1:/hadoop/dfs/data # Persiste bloques de datos
+    environment:
+      - SERVICE_PRECONDITION=namenode:9870 # Espera a que la UI del NameNode este lista
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000 # Debe coincidir con NameNode
+    networks:
+      - etf-net
+    depends_on:
+      namenode:
+        condition: service_healthy # Espera a que el datanode este healthy
+
+  # --- HDFS DataNode 2 Service ---
+  datanode2:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: datanode2
+    hostname: datanode2
+    volumes:
+      - hdfs_datanode2:/hadoop/dfs/data
+    environment:
+      - SERVICE_PRECONDITION=namenode:9870
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+    networks:
+      - etf-net
+    depends_on:
+      namenode:
+        condition: service_healthy
+
+  # --- Apache NiFi Service ---
+  nifi:
+    image: apache/nifi:1.28.0 # Version Nifi
+    container_name: nifi
+    hostname: nifi
+    user: "0:0"
+    ports:
+      - "8443:8443" # Puerto Web UI NiFi (HTTPS por defecto en versiones recientes)
+    environment:
+      - NIFI_WEB_HTTPS_PORT=8443
+      - NIFI_CLUSTER_IS_NODE=false # Configuración Standalone
+      - NIFI_ZK_CONNECT_STRING= # Asegura que no busca Zookeeper
+      - NIFI_SENSITIVE_PROPS_KEY=x585FuBhOk5luvEnaudWO4H1 
+    volumes:
+      # Persistencia de la configuración y estado de NiFi
+      - nifi_conf:/opt/nifi/nifi-current/conf
+      - nifi_database_repo:/opt/nifi/nifi-current/database_repository
+      - nifi_flowfile_repo:/opt/nifi/nifi-current/flowfile_repository
+      - nifi_content_repo:/opt/nifi/nifi-current/content_repository
+      - nifi_provenance_repo:/opt/nifi/nifi-current/provenance_repository
+      - nifi_state:/opt/nifi/nifi-current/state
+      - nifi_logs:/opt/nifi/nifi-current/logs
+      # Directorio para leer datos de entrada desde tu máquina local
+      - ./etf_data_input:/data_in
+      - ./config/hadoop/core-site.xml:/opt/nifi/nifi-current/conf/core-site.xml
+    networks:
+      - etf-net
+    depends_on: # NiFi debería empezar después de que las bases de datos estén listas
+      cassandra:
+        condition: service_healthy
+      namenode:
+        condition: service_healthy
+      datanode1:
+        condition: service_started 
+      datanode2:
+        condition: service_started 
+    healthcheck:
+        test: ["CMD", "curl", "-f", "https://localhost:8443/nifi"] 
+        interval: 30s
+        timeout: 10s
+        retries: 5
+        start_period: 60s 
