@@ -40,8 +40,8 @@ La arquitectura de la solución está diseñada para manejar el ciclo de vida co
 ## Fuentes de Datos
 
 * **Kaggle Dataset:** "Mutual Funds and ETFs" por Stefano Leone ([https://www.kaggle.com/datasets/stefanoleone992/mutual-funds-and-etfs](https://www.kaggle.com/datasets/stefanoleone992/mutual-funds-and-etfs)).
-    * Archivo específico utilizado: `Datasets/ETF_cohortes_final_preprocesado.csv` (derivado del archivo `ETF prices.csv` del dataset original).
-    * Contenido: Precios históricos diarios (OHLCV) y volumen para una amplia gama de ETFs de EEUU, cubriendo desde el 29 de enero de 1993 hasta el 27 de marzo de 2024.
+    * Archivo específico utilizado: ETF prices.csv
+    * Contenido: Precios históricos diarios (OHLCV) y volumen para una amplia gama de ETFs de EEUU, cubriendo desde el 29 de enero de 1993 hasta el 31 de Noviembre de 2021.
 * **Yahoo Finance API:**
     * [**COMPLETAR POR EL USUARIO:** Propósito de uso (ej. "para obtener datos más recientes no cubiertos por el dataset de Kaggle" o "para ETFs específicos"). Especificar la librería de Python si se usó, ej. `yfinance`].
 
@@ -74,23 +74,18 @@ La arquitectura de la solución está diseñada para manejar el ciclo de vida co
 ├── memoria.doc                        # Documento de la memoria del proyecto
 └── README.md                          # Este archivo
 
-*(**Instrucción para ti:** Adapta la parte de `Modelado/` y `BigData/Python/` según dónde estén los scripts/notebooks de tu compañero).*
-
 ## Prerrequisitos
 
 * Docker Desktop instalado y en ejecución.
 * Docker Compose (generalmente incluido con Docker Desktop).
 * Git (para clonar el repositorio).
 * Conexión a internet (para descargar imágenes Docker si es la primera vez).
-* [**COMPLETAR POR EL USUARIO:** Cualquier otro software específico necesario, ej: Power BI Desktop, Orange Datamining].
+* Power BI Desktop instalado
+* Orange Datamining instalado
 
 ## Instalación y Configuración
 
 1.  **Clonar el Repositorio:**
-    ```bash
-    git clone [https://www.youtube.com/watch?v=KrJwqsuhZ8U](https://www.youtube.com/watch?v=KrJwqsuhZ8U)
-    cd [nombre-del-directorio-del-proyecto]
-    ```
 
 2.  **Preparar Archivos de Configuración y Datos de Entrada para NiFi:**
     * Asegúrate de que el archivo de configuración de Hadoop `core-site.xml` esté presente en la ruta `BigData/Hadoop/core-site.xml`. Su contenido debe ser:
@@ -106,13 +101,6 @@ La arquitectura de la solución está diseñada para manejar el ciclo de vida co
         * Crear una carpeta en tu máquina host en la misma ubicación que tu archivo `docker-compose.yml`, por ejemplo: `BigData/Docker/nifi_data_input/`.
         * **Copiar** el archivo `Datasets/ETF_cohortes_final_preprocesado.csv` dentro de esta carpeta `BigData/Docker/nifi_data_input/`.
         * **Verifica el `docker-compose.yml`:** Asegúrate de que el volumen para el servicio de NiFi mapee correctamente esta carpeta del host a `/data_in` dentro del contenedor de NiFi. Por ejemplo, en tu `docker-compose.yml` para el servicio `nifi`, la sección de volúmenes debería tener algo como:
-            ```yaml
-            volumes:
-              # ... otros volúmenes de nifi ...
-              - ./nifi_data_input:/data_in # Mapea la carpeta local al contenedor
-              - ../Hadoop/core-site.xml:/opt/nifi/nifi-current/conf/core-site.xml # Mapeo del core-site.xml
-            ```
-            *(**Instrucción para ti:** Ajusta la ruta `./nifi_data_input` y `../Hadoop/core-site.xml` si es diferente en tu `docker-compose.yml` actual. La ruta del `core-site.xml` es relativa al `docker-compose.yml`)*
 
 3.  **Levantar el Entorno Docker:**
     Navega al directorio donde se encuentra tu `docker-compose.yml` (`BigData/Docker/`) y ejecuta:
@@ -160,11 +148,9 @@ La arquitectura de la solución está diseñada para manejar el ciclo de vida co
 
 4.  **Visualización (Power BI):**
     * Abre el archivo `Exploracion de datos/PowerBI/ETF.pbix` con Microsoft Power BI Desktop.
-    * [**COMPLETAR POR EL USUARIO:** Describe si es necesario actualizar las fuentes de datos dentro de Power BI y cómo interactuar con el informe/dashboard].
 
 5.  **Minería de Datos Visual (Orange):**
     * Abre el archivo de flujo de trabajo `Exploracion de datos/OrangeDatamining/ETF_Orange_Datamining.ows` con Orange Datamining.
-    * [**COMPLETAR POR EL USUARIO:** Describe cómo ejecutar el flujo y explorar los resultados en los widgets de Orange].
 
 ## Resultados Clave (Resumen)
 * La arquitectura Big Data fue implementada exitosamente, permitiendo el flujo de datos desde la ingesta hasta el almacenamiento distribuido.
